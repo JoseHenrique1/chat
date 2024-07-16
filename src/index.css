@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer components {
+  .messageList {
+    background-image: url("./assets/img/whats.png");
+    
+
+  }
+  .contactList {
+    height: calc(100vh - 145px);
+  }
+
+  .contactList::-webkit-scrollbar {
+    @apply w-2               /* width of the entire scrollbar */
+  }
+  
+  .contactList::-webkit-scrollbar-track {
+    @apply bg-white         /* color of the tracking area */
+  }
+  
+  .contactList::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;    /* color of the scroll thumb */
+    border: 1px solid white  /* creates padding around scroll thumb */
+  }
+}
