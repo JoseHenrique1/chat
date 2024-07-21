@@ -4,12 +4,12 @@ const fastify = Fastify({
   logger: true
 })
 
+
 /*
 cors
-prisma
-zod
 socket io
 */
+
 fastify.get('/', function (request, reply) {
   reply.send({ hello: 'world' })
 })
