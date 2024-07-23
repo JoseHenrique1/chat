@@ -1,2 +1,28 @@
-GET http://localhost:3000/
+GET http://localhost:3000/users
+Content-Type: application/json
+
+###
+
+POST  http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "jaaem3332333doe@example.com",
+  "password": "password123",
+  "img": "default"
+
+}
+
+###
+PATCH http://localhost:3000/users/6ebcf862-5583-43b3-a71f-1e511d7b8cf4
+Content-Type: application/json
+
+{
+  "name": "John Doe hahahahha"
+}
+
+
+###
+GET http://localhost:3000/users/6ebcf862-5583-43b3-a71f-1e511d7b8cf4
 Content-Type: application/json

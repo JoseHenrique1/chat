@@ -1,9 +1,13 @@
 import Fastify from 'fastify'
+import { UserRoute } from './modules/user/user.route.ts'
+import { serializerCompiler, validatorCompiler, ZodTypeProvider } from 'fastify-type-provider-zod'
 
 const fastify = Fastify({
-  logger: true
+  logger: false
 })
 
+fastify.setValidatorCompiler(validatorCompiler);
+fastify.setSerializerCompiler(serializerCompiler);
 
 /*
 cors
@@ -13,6 +17,8 @@ socket io
 fastify.get('/', function (request, reply) {
   reply.send({ hello: 'world' })
 })
+
+fastify.withTypeProvider<ZodTypeProvider>().register(UserRoute, {prefix: "/users"})
 
 fastify.listen({ port: 3000 }, function (err, address) {
   if (err) {
