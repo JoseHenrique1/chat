@@ -54,7 +54,6 @@ const deleteUser = {
   }
 }
 
-export type doneType = (err?: Error) => void
 
 export type UserType = z.infer<typeof user>
 

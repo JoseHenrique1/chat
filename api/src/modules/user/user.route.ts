@@ -1,8 +1,8 @@
-import { FastifyInstance } from "fastify";
+import { FastifyInstance, HookHandlerDoneFunction } from "fastify";
 import { UserController } from "./user.controller";
-import { UserSchema, doneType } from "./user.schema";
+import { UserSchema } from "./user.schema";
 
-export function UserRoute(fastify: FastifyInstance, opts: any, done: doneType) {
+export function UserRoute(fastify: FastifyInstance, opts: any, done: HookHandlerDoneFunction) {
   fastify.get("/", UserController.getUsers)
 
   fastify.post("/", UserSchema.createUser, UserController.createUser)
