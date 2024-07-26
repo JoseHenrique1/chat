@@ -1,5 +1,6 @@
 GET http://localhost:3000/users
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZhN2QyYzAyLTVmZjYtNDc3NC1iYTJhLTdjOWFlOWMzMGFmMyIsImlhdCI6MTcyMTk1NTY5MCwiZXhwIjoxNzIyNTYwNDkwfQ.g9wyG3xvh2SUXAtD6XWJMYfVf3TRiY19rI7wEn-vDd8
 
 ###
 
@@ -8,7 +9,7 @@ Content-Type: application/json
 
 {
   "name": "John Doe",
-  "email": "jaaem3332333doe@example.com",
+  "email": "kaaem3332333doe@example.com",
   "password": "password123",
   "img": "default"
 
@@ -26,3 +27,18 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/users/6ebcf862-5583-43b3-a71f-1e511d7b8cf4
 Content-Type: application/json
+
+
+
+###
+
+POST  http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "kaaaem3332333doe@example.com",
+  "password": "password123",
+  "img": "default"
+
+}
