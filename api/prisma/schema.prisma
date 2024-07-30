@@ -17,4 +17,64 @@ model User {
   name  String?
   password String
   img String
+
+  groups UserOnGroup[]
+  privateMessagesSent UserMessagePrivate[] @relation("userFrom")
+  privateMessagesReceived UserMessagePrivate[] @relation("userDestiny")
+  messagesGroup groupMessage[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Group {
+  id String @id @default(uuid())
+  name String
+
+  users UserOnGroup[]
+  messages groupMessage[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model UserOnGroup {
+  id String @id @default(uuid())
+
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  group Group @relation(fields: [groupId], references: [id])
+  groupId String
+
+  @@unique([userId, groupId])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model UserMessagePrivate {
+  id String @id @default(uuid())
+  message String
+
+  userFrom User @relation("userFrom", fields: [userFromId], references: [id])
+  userFromId String
+  userDestiny User @relation("userDestiny", fields: [userDestinyId], references: [id])
+  userDestinyId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model groupMessage {
+  id String @id @default(uuid())
+  message String
+
+  group Group @relation(fields: [groupId], references: [id])
+  groupId String
+  user User @relation(fields: [userId], references: [id])
+  userId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
