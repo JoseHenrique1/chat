@@ -1,6 +1,6 @@
 GET http://localhost:3000/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZhN2QyYzAyLTVmZjYtNDc3NC1iYTJhLTdjOWFlOWMzMGFmMyIsImlhdCI6MTcyMTk1NTY5MCwiZXhwIjoxNzIyNTYwNDkwfQ.g9wyG3xvh2SUXAtD6XWJMYfVf3TRiY19rI7wEn-vDd8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5NWNhNzYxLTk1M2YtNGE4MS1hYjM3LTM1NjA1YjFlOWUwMCIsImlhdCI6MTcyMjM2MTYyMywiZXhwIjoxNzIyOTY2NDIzfQ.XrO26sBNJfakf975QqUZfrqCXOl7yFPDAUTW2D3VT1A
 
 ###
 
@@ -37,8 +37,21 @@ Content-Type: application/json
 
 {
   "name": "John Doe",
-  "email": "kaaaem3332333doe@example.com",
+  "email": "jose@gmail.com",
   "password": "password123",
   "img": "default"
+
+}
+
+
+
+###
+
+POST  http://localhost:3000/groups
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5NWNhNzYxLTk1M2YtNGE4MS1hYjM3LTM1NjA1YjFlOWUwMCIsImlhdCI6MTcyMjM2MTYyMywiZXhwIjoxNzIyOTY2NDIzfQ.XrO26sBNJfakf975QqUZfrqCXOl7yFPDAUTW2D3VT1A
+
+{
+  "name": "English 2"
 
 }
