@@ -17,13 +17,13 @@ model User {
   password String
   img      String
 
-  friends       Friends[] @relation("UserFriend")
-  friendOf Friends[] @relation("FriendUser")
+  friends       Friends[]      @relation("user")
+  friendOf      Friends[]      @relation("friend")
   groups        UserOnGroup[]
   messagesGroup groupMessage[]
 
-  privateMessagesSent     UserMessagePrivate[] @relation("userFrom")
-  privateMessagesReceived UserMessagePrivate[] @relation("userDestiny")
+  privateMessagesSent     UserMessagePrivate[] @relation("user")
+  privateMessagesReceived UserMessagePrivate[] @relation("friend")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -35,8 +35,8 @@ model Friends {
   emailUser   String
   emailFriend String
 
-  user   User @relation("UserFriend",fields: [emailUser], references: [email])
-  friend User @relation("FriendUser",fields: [emailFriend], references: [email])
+  user   User @relation("user", fields: [emailUser], references: [email])
+  friend User @relation("friend", fields: [emailFriend], references: [email])
 
   @@unique([emailUser, emailFriend])
 }
@@ -55,25 +55,27 @@ model Group {
 model UserOnGroup {
   id String @id @default(uuid())
 
-  user    User   @relation(fields: [userId], references: [id])
-  userId  String
-  group   Group  @relation(fields: [groupId], references: [id])
-  groupId String
+  emailUser String
+  groupId   String
+  
+  user      User   @relation(fields: [emailUser], references: [email])
+  group     Group  @relation(fields: [groupId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@unique([userId, groupId])
+  @@unique([emailUser, groupId])
 }
 
 model UserMessagePrivate {
   id      String @id @default(uuid())
   message String
 
-  userFrom      User   @relation("userFrom", fields: [userFromId], references: [id])
-  userFromId    String
-  userDestiny   User   @relation("userDestiny", fields: [userDestinyId], references: [id])
-  userDestinyId String
+  emailUser   String
+  emailFriend String
+
+  user   User @relation("user", fields: [emailUser], references: [email])
+  friend User @relation("friend", fields: [emailFriend], references: [email])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -83,10 +85,11 @@ model groupMessage {
   id      String @id @default(uuid())
   message String
 
-  group   Group  @relation(fields: [groupId], references: [id])
-  groupId String
-  user    User   @relation(fields: [userId], references: [id])
-  userId  String
+  groupId   String
+  emailUser String
+
+  group Group @relation(fields: [groupId], references: [id])
+  user  User  @relation(fields: [emailUser], references: [email])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
