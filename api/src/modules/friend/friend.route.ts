@@ -64,11 +64,61 @@ export function FriendRoute(fastify: FastifyInstance, opts: any, done: HookHandl
     return {friend}
   });
 
-  fastify.delete("/:id", () => "ok");
+  fastify.delete("/:email",async (request: FastifyRequest<{Params: {email: string}}>, reply) => {
+    const { id } = request.user;
+    const user = await prisma.user.findUnique({ where: { id } })
+    const friendEmail = request.params.email
 
-  fastify.get("/:id/messages", () => "ok");
+    const friendDeleted = await prisma.friends.delete({
+      where: {
+        emailUser_emailFriend: {
+          emailFriend: friendEmail,
+          emailUser: user?.email!,
+        }
+      },
+    })
 
-  fastify.post("/:id/messages", () => "ok");
+    return {friendDeleted}
+  });
+
+  /* Testar!! */
+  fastify.get("/:email/messages", async (request: FastifyRequest<{Params: {email: string}}>, reply) => {
+    const { id } = request.user;
+    const user = await prisma.user.findUnique({ where: { id } })
+    const userEmail = user?.email
+    const friendEmail = request.params.email
+
+
+    const messages = await prisma.userMessagePrivate.findMany({
+      where: {
+        OR: [
+          {emailFriend: friendEmail, emailUser: userEmail},
+          {emailFriend: userEmail, emailUser: friendEmail}
+        ],
+      }
+    });
+
+    return {messages}
+  });
+
+  fastify.post("/:email/messages", async (request: FastifyRequest<{Params: {email: string}, Body: {message: string}}>, reply) => {
+    const { id } = request.user;
+    const user = await prisma.user.findUnique({ where: { id } })
+    const userEmail = user?.email!
+
+    const email = request.params.email
+    const messageBody = request.body.message
+
+    const message = await prisma.userMessagePrivate.create({
+      data: {
+        message: messageBody,
+        emailFriend: email,
+        emailUser: userEmail
+      }
+    })
+
+    return {message}
+  });
 
   done();
 }
