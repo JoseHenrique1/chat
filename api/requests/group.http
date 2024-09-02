@@ -1,0 +1,7 @@
+POST  http://localhost:3000/groups
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5NWNhNzYxLTk1M2YtNGE4MS1hYjM3LTM1NjA1YjFlOWUwMCIsImlhdCI6MTcyNTIxMzA3NywiZXhwIjoxNzI1ODE3ODc3fQ.RATB5mUO4_RhRY8TUJH-xaxkmvdO5X8gkEIpq4S7UWw
+
+{
+  "name": "English 3"
+}
