@@ -10,28 +10,42 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
-  id    String     @id @default(uuid())
-  email String  @unique
-  name  String?
+  id       String  @id @default(uuid())
+  email    String  @unique
+  name     String?
   password String
-  img String
+  img      String
 
-  groups UserOnGroup[]
-  privateMessagesSent UserMessagePrivate[] @relation("userFrom")
-  privateMessagesReceived UserMessagePrivate[] @relation("userDestiny")
+  friends       Friends[] @relation("UserFriend")
+  friendOf Friends[] @relation("FriendUser")
+  groups        UserOnGroup[]
   messagesGroup groupMessage[]
+
+  privateMessagesSent     UserMessagePrivate[] @relation("userFrom")
+  privateMessagesReceived UserMessagePrivate[] @relation("userDestiny")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Group {
+model Friends {
   id String @id @default(uuid())
+
+  emailUser   String
+  emailFriend String
+
+  user   User @relation("UserFriend",fields: [emailUser], references: [email])
+  friend User @relation("FriendUser",fields: [emailFriend], references: [email])
+
+  @@unique([emailUser, emailFriend])
+}
+
+model Group {
+  id   String @id @default(uuid())
   name String
 
-  users UserOnGroup[]
+  users    UserOnGroup[]
   messages groupMessage[]
 
   createdAt DateTime @default(now())
@@ -41,25 +55,24 @@ model Group {
 model UserOnGroup {
   id String @id @default(uuid())
 
-  user User @relation(fields: [userId], references: [id])
-  userId String
-  group Group @relation(fields: [groupId], references: [id])
+  user    User   @relation(fields: [userId], references: [id])
+  userId  String
+  group   Group  @relation(fields: [groupId], references: [id])
   groupId String
-
-  @@unique([userId, groupId])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@unique([userId, groupId])
 }
 
-
 model UserMessagePrivate {
-  id String @id @default(uuid())
+  id      String @id @default(uuid())
   message String
 
-  userFrom User @relation("userFrom", fields: [userFromId], references: [id])
-  userFromId String
-  userDestiny User @relation("userDestiny", fields: [userDestinyId], references: [id])
+  userFrom      User   @relation("userFrom", fields: [userFromId], references: [id])
+  userFromId    String
+  userDestiny   User   @relation("userDestiny", fields: [userDestinyId], references: [id])
   userDestinyId String
 
   createdAt DateTime @default(now())
@@ -67,13 +80,13 @@ model UserMessagePrivate {
 }
 
 model groupMessage {
-  id String @id @default(uuid())
+  id      String @id @default(uuid())
   message String
 
-  group Group @relation(fields: [groupId], references: [id])
+  group   Group  @relation(fields: [groupId], references: [id])
   groupId String
-  user User @relation(fields: [userId], references: [id])
-  userId String
+  user    User   @relation(fields: [userId], references: [id])
+  userId  String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
