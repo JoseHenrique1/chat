@@ -25,7 +25,7 @@ function verifyToken (request: FastifyRequest, reply: FastifyReply, done: HookHa
 
   const token = authorization.split(" ")[1];
   const decoded = verify(token, process.env.JWT_SECRET_KEY || "") as decodedInterface
-  console.log(decoded);
+  
   request.user = decoded;
   done();
 }
