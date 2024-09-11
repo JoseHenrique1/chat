@@ -38,6 +38,28 @@ async function deleteGroup(id: string) {
   return group
 }
 
+async function getMessages(groupId: string) {
+  const messages = await prisma.groupMessage.findMany({
+    where: {
+      groupId
+    }
+  });
+
+  return messages
+}
+
+async function createMessage(id: string,email: string, message: string) {
+  const messageCreated = await prisma.groupMessage.create({
+    data: {
+      groupId: id,
+      emailUser: email,
+      message
+    }
+  })
+
+  return messageCreated
+}
+
 
 export const GroupService = {
   getGroup,
@@ -45,4 +67,6 @@ export const GroupService = {
   createGroup,
   updateGroup,
   deleteGroup,
+  getMessages,
+  createMessage,
 }
