@@ -66,10 +66,26 @@ async function createMessage(emailUser: string, emailFriend: string, message: st
   return { message: messageCreated }
 }
 
+async function getUser(id: string) {
+  const user = await prisma.user.findUnique({
+    where: { id },
+  })
+  return user;
+}
+
+async function getUserByEmail(email: string) {
+  const user = await prisma.user.findUnique({
+    where: { email },
+    select: { name: true, email: true }
+  })
+  return user;
+}
+
 export const FriendService = {
   getFriends,
   createFriend,
   deleteFriend,
   getMessages,
   createMessage,
+  getUserByEmail
 }

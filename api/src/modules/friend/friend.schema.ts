@@ -35,6 +35,7 @@ const createMessage = {
   }
 }
 
+
 export const FriendSchema = {
   createFriend,
   deleteFriend,
