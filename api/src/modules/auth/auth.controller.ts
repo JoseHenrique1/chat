@@ -13,7 +13,7 @@ async function sigin(request: FastifyRequest<{Body: authType}>, reply: FastifyRe
     return;
   }
 
-  const token = AuthService.signin(user.id);
+  const token = AuthService.signin(user.id, user.email);
   reply.send(token)
 }
 

@@ -3,17 +3,21 @@ import { verify } from "jsonwebtoken";
 
 declare module 'fastify' {
   interface FastifyRequest {
-    user: { id: string }
+    user: { id: string, email: string }
   }
 }
 
 interface decodedInterface {
-  id: string;
+  id: string,
+  email:string
 }
 
-type decoratorUserType = ["user", {id: string}]
+type decoratorUserType = ["user", {
+  id: string,
+  email: string
+}]
 
-const decoratorUser: decoratorUserType = ["user", { id: "" }]
+const decoratorUser: decoratorUserType = ["user", { id: "", email: "" }]
 
 // Este hook verifica o token a adiciona o user no objeto fastify
 function verifyToken (request: FastifyRequest, reply: FastifyReply, done: HookHandlerDoneFunction) {
