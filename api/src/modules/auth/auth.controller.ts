@@ -14,7 +14,7 @@ async function sigin(request: FastifyRequest<{Body: authType}>, reply: FastifyRe
   }
 
   const token = AuthService.signin(user.id, user.email);
-  reply.send(token)
+  reply.send({token})
 }
 
 export const AuthController = {

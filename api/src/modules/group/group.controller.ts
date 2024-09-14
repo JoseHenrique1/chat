@@ -7,17 +7,17 @@ import { prisma } from "../../databse/prisma"
 async function getGroup(request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) {
   const { id } = request.params;
   const group = await GroupService.getGroup(id);
-  reply.send(group)
+  reply.send({group})
 }
 
 async function getGroups(request: FastifyRequest, reply: FastifyReply) {
   const groups = await GroupService.getGroups();
-  reply.send(groups)
+  reply.send({groups})
 }
 
 async function createGroup(request: FastifyRequest<{ Body: GroupType }>, reply: FastifyReply) {
   const group = await GroupService.createGroup(request.body);
-  reply.status(201).send(group)
+  reply.status(201).send({group})
 }
 
 async function putGroup(request: FastifyRequest<{ Params: { id: string }, Body: GroupType }>, reply: FastifyReply) {

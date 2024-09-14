@@ -6,17 +6,17 @@ import { UserType } from "./user.schema";
 async function getUser(request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) {
   const { id } = request.params;
   const user = await UserService.getUser(id);
-  reply.send(user)
+  reply.send({user})
 }
 
 async function getUsers(request: FastifyRequest, reply: FastifyReply) {
   const users = await UserService.getUsers();
-  reply.send(users)
+  reply.send({users})
 }
 
 async function createUser(request: FastifyRequest<{ Body: UserType }>, reply: FastifyReply) {
   const user = await UserService.createUser(request.body);
-  reply.status(201).send(user)
+  reply.status(201).send({user})
 }
 
 async function putUser(request: FastifyRequest<{ Params: { id: string }, Body: UserType }>, reply: FastifyReply) {

@@ -31,7 +31,7 @@ async function deleteFriend(request: FastifyRequest<{ Params: { email: string } 
 
   const friendDeleted = await FriendService.deleteFriend(email, friendEmail)
 
-  return { friendDeleted }
+  return { friend: friendDeleted.friend }
 }
 
 async function getMessages(request: FastifyRequest<{ Params: { email: string } }>, reply: FastifyReply) {
@@ -40,7 +40,7 @@ async function getMessages(request: FastifyRequest<{ Params: { email: string } }
 
   const messages = await FriendService.getMessages(email!, friendEmail)
 
-  return { messages }
+  return { messages: messages.messages }
 }
 async function createMessage(request: FastifyRequest<{ Params: { email: string }, Body: { message: string } }>, reply: FastifyReply) {
   const email = request.user.email
@@ -50,7 +50,13 @@ async function createMessage(request: FastifyRequest<{ Params: { email: string }
 
   const message = await FriendService.createMessage(email, emailFriend, messageBody)
 
-  return { message }
+  request.websocket = {
+    from: email,
+    destiny: emailFriend,
+    message: message.message.message,
+  }
+
+  return { message: message.message }
 }
 
 export const FriendController = {
