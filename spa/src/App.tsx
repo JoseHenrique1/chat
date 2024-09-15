@@ -1,11 +1,11 @@
-import Contact from './components/contact'
-import { Chat } from './components/chat'
+import { SectionContact } from './components/section-contact'
+import { SectionChat } from './components/section-chat'
+
 function App() {
   return (
     <div className='flex'>
-      <Contact/>
-      <Chat />
-      
+      <SectionContact />
+      <SectionChat />
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { Header } from "./header";
 import { UserDefault } from "./user-deafult";
 import { MessageList } from "./message-list";
 
-export function Chat() {
+export function SectionChat() {
   return ( 
     <div className="flex-grow flex flex-col h-screen">
       <Header>

@@ -5,7 +5,8 @@ import { ArchivedMsgs } from "./archived-messages";
 import { ContactCardList } from "./contact-card-list";
 import { Lock, MoreVertical } from "lucide-react";
 import { BadgeList } from "./badge-list";
-function Contact() {
+
+export function SectionContact() {
   return (
     <div className="flex flex-col w-full min-h-screen lg:max-w-sm">
       <Header>
@@ -35,5 +36,3 @@ function Contact() {
     </div>
   );
 }
-
-export default Contact;
