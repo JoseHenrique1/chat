@@ -1,7 +1,6 @@
 import { UserDefault } from "./user-deafult";
 import { Header } from "./header";
 import { Search } from "./search";
-import { ArchivedMsgs } from "./archived-messages";
 import { ContactCardList } from "./contact-card-list";
 import { Lock, MoreVertical } from "lucide-react";
 import { BadgeList } from "./badge-list";
@@ -22,7 +21,6 @@ export function SectionContact() {
 
       {/*ADCIONAR O OVERFLOW Y AQUI E USAR O CALC PARA O HEIGHT*/}
       <div className="flex-grow flex flex-col overflow-y-scroll contactList">
-        <ArchivedMsgs />
         <ContactCardList />
         <div className="p-4">
           <p className="text-xs text-center">
