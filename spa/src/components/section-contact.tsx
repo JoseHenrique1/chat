@@ -2,8 +2,9 @@ import { UserDefault } from "./user-deafult";
 import { Header } from "./header";
 import { Search } from "./search";
 import { ContactCardList } from "./contact-card-list";
-import { Lock, MoreVertical } from "lucide-react";
+import { MoreVertical } from "lucide-react";
 import { BadgeList } from "./badge-list";
+import { ContactListFooter } from "./contact-list-footer";
 
 export function SectionContact() {
   return (
@@ -22,15 +23,8 @@ export function SectionContact() {
       {/*ADCIONAR O OVERFLOW Y AQUI E USAR O CALC PARA O HEIGHT*/}
       <div className="flex-grow flex flex-col overflow-y-scroll contactList">
         <ContactCardList />
-        <div className="p-4">
-          <p className="text-xs text-center">
-            <Lock size={14} className="inline-flex mr-1" />
-            Suas mensagens pessoais são protegidas com a
-            <a href="#" className="text-blue-400"> criptografia de ponta a ponta</a>
-          </p>
-        </div>
+        <ContactListFooter />
       </div>
-
     </div>
   );
 }
