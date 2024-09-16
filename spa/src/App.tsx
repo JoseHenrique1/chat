@@ -1,12 +1,8 @@
-import { SectionContact } from './components/section-contact'
-import { SectionChat } from './components/section-chat'
+import { Router } from "./router"
 
 function App() {
   return (
-    <div className='flex'>
-      <SectionContact />
-      <SectionChat />
-    </div>
+    <Router />
   )
 }
 
