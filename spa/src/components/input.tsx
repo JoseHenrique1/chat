@@ -1,9 +1,12 @@
-import { ComponentProps } from "react";
+import { ComponentProps, forwardRef, InputHTMLAttributes } from "react";
 
-export function Input({...props}: ComponentProps<'input'>) {
-  return (
-    <input 
-      className="px-2 py-1 rounded focus:outline-none focus:ring focus:ring-secondary"
-      {...props} />
-  );
-}
+export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
+  ({...props }: ComponentProps<'input'>, ref) => {
+    return (
+      <input
+        ref={ref}
+        className="px-2 py-1 rounded focus:outline-none focus:ring focus:ring-secondary"
+        {...props} />
+    );
+  }
+)
