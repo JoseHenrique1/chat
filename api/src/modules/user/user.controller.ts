@@ -15,6 +15,11 @@ async function getUsers(request: FastifyRequest, reply: FastifyReply) {
 }
 
 async function createUser(request: FastifyRequest<{ Body: UserType }>, reply: FastifyReply) {
+  const userExists = await UserService.getUserByEmail(request.body.email);
+  if (userExists) {
+    reply.status(409).send({ message: "User already exists" });
+    return;
+  }
   const user = await UserService.createUser(request.body);
   reply.status(201).send({user})
 }
