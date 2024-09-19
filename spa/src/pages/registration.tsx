@@ -17,10 +17,12 @@ export function Registration() {
   } = useForm<InputsRegistration>()
 
   const mutation = useMutation({
-    mutationFn:async (data: InputsRegistration) => {
-      return await api.post("/auth/signup", {...data, img:"default"})
-        .then(res=>res.data)
-        .catch(()=>null)
+    mutationFn: async (data: InputsRegistration) => {
+      console.log(data.img);
+      
+      return await api.post("/auth/signup", { ...data })
+        .then(res => res.data)
+        .catch(() => null)
     },
   })
 
@@ -28,10 +30,10 @@ export function Registration() {
     mutation.mutate(data)
   }
 
-  useEffect(()=>{
-    if(mutation.isSuccess){
+  useEffect(() => {
+    if (mutation.isSuccess) {
       alert("Usuario cadastrado")
-      setTimeout(()=>{
+      setTimeout(() => {
         navigate("/auth/signin")
       }, 3000)
     }
@@ -62,7 +64,14 @@ export function Registration() {
           {...register("password", { minLength: 6, required: true })} />
         {errors.password?.type == "required" && <p>Campo obrigatório</p>}
         {errors.password?.type == "minLength" && <p>Precisa ter no mínimo 6 caracteres</p>}
+
+        <select {...register("img")}>
+          <option value="default">default</option>
+          <option value="female">female</option>
+          <option value="male">male</option>
+        </select>
         <Button type="submit">Entrar</Button>
+        {mutation.isPending && <p>carregando ...</p>}
       </form>
     </main>
   );
