@@ -1,20 +1,41 @@
 import { Input } from "../components/input";
 import { Button } from "../components/button";
 import { useForm } from "react-hook-form"
-
+import { useMutation } from "@tanstack/react-query";
+import { useEffect } from "react";
 import { InputsRegistration } from "../interfaces";
-const api = import.meta.env.VITE_API
+import { api } from "../utils/axios";
+import { useNavigate } from "react-router-dom";
+
 
 export function Registration() {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<InputsRegistration>()
 
+  const mutation = useMutation({
+    mutationFn:async (data: InputsRegistration) => {
+      return await api.post("/auth/signup", {...data, img:"default"})
+        .then(res=>res.data)
+        .catch(()=>null)
+    },
+  })
+
   async function onSubmit(data: InputsRegistration) {
-    alert(JSON.stringify(data))
+    mutation.mutate(data)
   }
+
+  useEffect(()=>{
+    if(mutation.isSuccess){
+      alert("Usuario cadastrado")
+      setTimeout(()=>{
+        navigate("/auth/signin")
+      }, 3000)
+    }
+  }, [mutation.isSuccess])
 
   return (
     <main
@@ -38,9 +59,9 @@ export function Registration() {
         <Input
           type="password"
           placeholder="min 3"
-          {...register("password", { minLength: 3, required: true })} />
+          {...register("password", { minLength: 6, required: true })} />
         {errors.password?.type == "required" && <p>Campo obrigatório</p>}
-        {errors.password?.type == "minLength" && <p>Precisa ter no mínimo 3 caracteres</p>}
+        {errors.password?.type == "minLength" && <p>Precisa ter no mínimo 6 caracteres</p>}
         <Button type="submit">Entrar</Button>
       </form>
     </main>
