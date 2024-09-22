@@ -1,4 +1,10 @@
-export type Inputs = {
+export interface responseToken {
+  data: {
+    token: string
+  }
+}
+
+export type InputsLogin = {
   email: string
   password: string
 }
@@ -15,3 +21,4 @@ export type InputsRegistration = {
   password: string
   img: ImageUserEnum
 }
+
