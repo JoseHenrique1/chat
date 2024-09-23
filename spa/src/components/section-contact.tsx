@@ -8,7 +8,7 @@ import { ContactListFooter } from "./contact-list-footer";
 
 export function SectionContact() {
   return (
-    <div className="flex flex-col w-full min-h-screen lg:max-w-sm">
+    <div className="flex flex-col w-full min-h-screen md:max-w-sm">
       <Header>
         <div>
           <UserDefault width={40} height={40} />
