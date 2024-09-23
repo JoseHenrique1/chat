@@ -1,16 +1,19 @@
 import { CheckCheck } from "lucide-react";
 import { UserDefault } from "./user-deafult";
+import { useContext } from "react";
+import { ResponsiveHomeContext } from "../contexts/responsive-home-context";
 
 export function ContactCard() {
+  const { handleDisableContact } = useContext(ResponsiveHomeContext)
 
   function handleOpenContact() {
-    alert("Abrindo contato")  
+    handleDisableContact()
   }
 
   return (
     <div onClick={handleOpenContact} className="flex cursor-pointer">
       <div className="p-3">
-      <UserDefault />
+        <UserDefault />
       </div>
       <div className="py-3 pr-4 gap-1 h-full flex-grow flex flex-wrap justify-between items-end border-t">
         <p>Nome</p>
@@ -20,5 +23,6 @@ export function ContactCard() {
           Olá, como foi seu dia?
         </p>
       </div>
-    </div>);
+    </div>
+  );
 }

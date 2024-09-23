@@ -4,12 +4,12 @@ export function useResponsiveHome() {
   const [isMobile, setIsMobile] = useState(window.innerWidth<768);
   const [contactVisible, setContactVisible] = useState(true);
 
-  function enableContact() {
-    setContactVisible(true)
+  function handleEnableContact() {
+    isMobile && setContactVisible(true)
   }
 
-  function disableContact() {
-    setContactVisible(false)
+  function handleDisableContact() {
+    isMobile && setContactVisible(false)
   }
 
   useEffect(()=>{
@@ -32,8 +32,8 @@ export function useResponsiveHome() {
   return {
     isMobile,
     contactVisible,
-    enableContact,
-    disableContact
+    handleEnableContact,
+    handleDisableContact
   }
   
 }
