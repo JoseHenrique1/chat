@@ -5,11 +5,11 @@ export function useResponsiveHome() {
   const [contactVisible, setContactVisible] = useState(true);
 
   function handleEnableContact() {
-    isMobile && setContactVisible(true)
+    setContactVisible(true)
   }
 
   function handleDisableContact() {
-    isMobile && setContactVisible(false)
+    setContactVisible(false)
   }
 
   useEffect(()=>{

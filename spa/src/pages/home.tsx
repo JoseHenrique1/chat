@@ -30,7 +30,12 @@ export function Home() {
         {
           !isMobile && <>
             <SectionContact />
-            <SectionChat />
+            {
+              contactVisible?
+              <div>Abra um contato e inicie uma conversa</div>
+              :
+              <SectionChat />
+            }
           </>
         }
       </div>
