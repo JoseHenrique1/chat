@@ -1,9 +1,7 @@
 import { Check } from "lucide-react";
 
-interface props {
-  isFriend?: boolean
-}
-export function Message({isFriend}: props) {
+import { propsMessage } from "../interfaces";
+export function Message({isFriend}: propsMessage) {
   
   return (
     <>
