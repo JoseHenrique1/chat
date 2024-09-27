@@ -1,4 +1,5 @@
-import { Input, Button } from "@headlessui/react";
+import { Input } from "../input";
+import { Button } from "../button";
 
 export function AddFriend() {
   return (

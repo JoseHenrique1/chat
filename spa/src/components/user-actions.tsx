@@ -21,7 +21,6 @@ export function UserActions() {
         logoutModal={logoutModal}
       />
 
-
       <Modal {...friendModal} title="Novo amigo">
         <AddFriend />
       </Modal>
@@ -35,6 +34,5 @@ export function UserActions() {
         <ConfirmLogout />
       </Modal>
     </>
-
   )
 }
