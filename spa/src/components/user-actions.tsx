@@ -12,7 +12,7 @@ export function UserActions() {
     <>
       <Menu>
         <MenuButton className="inline-flex items-center gap-2 rounded-md bg-transparent py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-700 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">
-          <MoreVertical size={20} color="#1f2937" className="cursor-pointer" />
+          <MoreVertical size={20} className="cursor-pointer text-quaternary" />
         </MenuButton>
 
         <MenuItems

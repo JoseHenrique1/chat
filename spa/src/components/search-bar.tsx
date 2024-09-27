@@ -7,13 +7,13 @@ export function SearchBar() {
   const {handleEnableContact} = useContext(ResponsiveHomeContext)
   return (
     <div className="bg-primary h-14 flex items-center gap-4 px-4 py-2">
-      <Undo2 onClick={handleEnableContact} color="#1f2937" className="cursor-pointer md:hidden" />
+      <Undo2 onClick={handleEnableContact} className="cursor-pointer text-quaternary md:hidden" />
       <input
         type="text"
         placeholder="Digite uma mensagem"
-        className="flex-grow rounded bg-white text-gray-800 h-full px-4 text-sm focus:outline-none"
+        className="flex-grow rounded bg-tertiary text-quaternary h-full px-4 text-sm focus:outline-none"
       />
-      <SendHorizonal color="#1f2937" className="cursor-pointer" />
+      <SendHorizonal className="cursor-pointer text-quaternary" />
     </div>
   );
 }

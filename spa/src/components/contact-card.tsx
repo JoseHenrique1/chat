@@ -1,4 +1,3 @@
-import { CheckCheck } from "lucide-react";
 import { UserDefault } from "./user-deafult";
 import { useContext } from "react";
 import { ResponsiveHomeContext } from "../contexts/responsive-home-context";
@@ -11,15 +10,14 @@ export function ContactCard() {
   }
 
   return (
-    <div onClick={handleOpenContact} className="flex cursor-pointer">
+    <div onClick={handleOpenContact} className="flex cursor-pointer first:group">
       <div className="p-3">
         <UserDefault />
       </div>
-      <div className="py-3 pr-4 gap-1 h-full flex-grow flex flex-wrap justify-between items-end border-t">
-        <p>Nome</p>
-        <p className="text-sm text-gray-500">19:50</p>
-        <p className="w-full text-gray-500 flex items-center text-sm">
-          <CheckCheck size={20} color="#60a5fa" />
+      <div className="py-3 pr-4 gap-1 h-full flex-grow flex flex-wrap justify-between items-end border-t border-quinternary group-hover:bg-black">
+        <p className="text-quaternary">Nome</p>
+        <p className="text-sm text-secondary">19:50</p>
+        <p className="w-full text-secondary flex items-center text-sm">
           Olá, como foi seu dia?
         </p>
       </div>

@@ -11,7 +11,7 @@ export function Badge({children}: props) {
     setActivated(children);
   }
 
-  const color = activated == children? "bg-green-100 text-green-600" : "bg-primary text-gray-500";
+  const color = activated == children? "bg-special/30 text-special" : "bg-primary text-secondary";
   const className = color + " text-sm cursor-pointer flex justify-center items-center rounded-full h-8 px-3"
   return ( 
     <div onClick={handleSetBadgeSelected} className={className}>

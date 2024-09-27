@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import colors, { green, slate } from "tailwindcss/colors"
+
 export default {
   content: [
     "./index.html",
@@ -9,7 +10,11 @@ export default {
     colors: {
       transparent: 'transparent',
       'primary': "#F0F2F5",
-      'secondary': "#E7FCE3",
+      'secondary': "#6b7280",
+       'tertiary': "#ffffff",
+       'quaternary': "#1f2937",
+       'quinternary': "#d1d5db",
+       'special': "#3b82f6",
       black: colors.black,
       white: colors.white,
       gray: colors.gray,

@@ -11,14 +11,14 @@ export function SectionChat() {
         <div className="flex items-center gap-4">
           <UserDefault width={40} height={40}/>
           <div className="flex-grow h-full flex flex-col">
-            <h1 >Nome</h1>
-            <p className="text-xs text-gray-600">Clique para mostrar dados do usuário</p>
+            <h1 className="text-quaternary">Nome 1</h1>
+            <p className="text-xs text-secondary">Clique para mostrar dados do usuário</p>
           </div>
         </div>
 
         <div className="flex gap-8">
-          <Search size={20} color="#1f2937" className="cursor-pointer"/>
-          <MoreVertical size={20} color="#1f2937" className="cursor-pointer"/>
+          <Search size={20} className="cursor-pointer text-quaternary"/>
+          <MoreVertical size={20} className="cursor-pointer text-quaternary"/>
         </div>
       </Header>
 
