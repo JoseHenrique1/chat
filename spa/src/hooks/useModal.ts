@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useModal() {
+export function useModal(title: string) {
   //visibilidade do modal
   const [isOpen, setIsOpen] = useState(false)
 
@@ -15,6 +15,7 @@ export function useModal() {
   return {
     isOpen,
     handleClose,
-    handleOpen
+    handleOpen,
+    title
   }
 }

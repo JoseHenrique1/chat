@@ -75,9 +75,21 @@ export interface propsBadge {
 // UserDropdown
 
 export interface propsUserDropdown {
-  friendModal: { handleOpen: () => void },
-  groupModal: { handleOpen: () => void },
-  profileModal: { handleOpen: () => void },
-  logoutModal: { handleOpen: () => void },
+  openAddFriendModal: () => void,
+  openAddGroupModal: () => void,
+  openUserProfileModal: () => void,
+  openLogoutModal: () => void,
 }
+
+export interface propsGroupDropdown {
+  openAddFriendGroupModal: () => void,
+  openGroupProfileModal: () => void,
+  openExitModal: () => void,
+}
+
+export interface propsFriendDropdown {
+  openFriendProfileModal: () => void,
+  openDeleteFriendModal: () => void,
+}
+
 

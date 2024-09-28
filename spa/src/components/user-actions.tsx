@@ -7,30 +7,30 @@ import { AddFriend } from './actions/add-friend'
 import { UserDropdown } from './user-dropdown'
 
 export function UserActions() {
-  const friendModal = useModal()
-  const groupModal = useModal()
-  const profileModal = useModal()
-  const logoutModal = useModal()
+  const friendModal = useModal("Novo amigo")
+  const groupModal = useModal("Criar grupo")
+  const profileModal = useModal("Perfil")
+  const logoutModal = useModal("Você deseja sair?")
 
   return (
     <>
       <UserDropdown
-        friendModal={friendModal}
-        groupModal={groupModal}
-        profileModal={profileModal}
-        logoutModal={logoutModal}
+        openAddFriendModal={friendModal.handleOpen}
+        openAddGroupModal={groupModal.handleOpen}
+        openUserProfileModal={profileModal.handleOpen}
+        openLogoutModal={logoutModal.handleOpen}
       />
 
-      <Modal {...friendModal} title="Novo amigo">
+      <Modal {...friendModal}>
         <AddFriend />
       </Modal>
-      <Modal {...groupModal} title="Criar grupo">
+      <Modal {...groupModal}>
         <CreateGroup />
       </Modal>
-      <Modal {...profileModal} title="Perfil">
+      <Modal {...profileModal}>
         <UserProfile />
       </Modal>
-      <Modal {...logoutModal} title="Você deseja sair?">
+      <Modal {...logoutModal}>
         <ConfirmLogout />
       </Modal>
     </>

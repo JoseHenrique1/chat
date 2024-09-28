@@ -1,8 +1,8 @@
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
-import { MoreVertical, UserRoundPlus, Users, UserRoundSearch, LogOut } from "lucide-react";
-import { propsUserDropdown } from "../interfaces";
+import { MoreVertical, UserRoundPlus, UserRoundSearch, LogOut } from "lucide-react";
+import { propsGroupDropdown, } from "../interfaces";
 
-export function UserDropdown({ openAddFriendModal, openAddGroupModal, openLogoutModal, openUserProfileModal }: propsUserDropdown) {
+export function GroupDropdown({ openAddFriendGroupModal, openExitModal, openGroupProfileModal }: propsGroupDropdown) {
   //<Menu __demoMode> ja vem com o dropdown ligado
   return (
     <Menu>
@@ -17,7 +17,18 @@ export function UserDropdown({ openAddFriendModal, openAddGroupModal, openLogout
       >
         <MenuItem>
           <button
-            onClick={openAddFriendModal}
+            onClick={openGroupProfileModal}
+            className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 
+              data-[focus]:bg-quinternary/50 text-secondary hover:text-quaternary"
+          >
+            <UserRoundSearch className="size-4 fill-white/30" />
+            Ver dados
+            <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-data-[focus]:inline">HAHA</kbd>
+          </button>
+        </MenuItem>
+        <MenuItem>
+          <button
+            onClick={openAddFriendGroupModal}
             className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 
               data-[focus]:bg-quinternary/50 text-secondary hover:text-quaternary"
           >
@@ -28,29 +39,7 @@ export function UserDropdown({ openAddFriendModal, openAddGroupModal, openLogout
         </MenuItem>
         <MenuItem>
           <button
-            onClick={openAddGroupModal}
-            className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 
-              data-[focus]:bg-quinternary/50 text-secondary hover:text-quaternary"
-          >
-            <Users className="size-4 fill-white/30" />
-            Criar grupo
-            <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-data-[focus]:inline">HAHA</kbd>
-          </button>
-        </MenuItem>
-        <MenuItem>
-          <button
-            onClick={openUserProfileModal}
-            className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 
-              data-[focus]:bg-quinternary/50 text-secondary hover:text-quaternary"
-          >
-            <UserRoundSearch className="size-4 fill-white/30" />
-            Perfil
-            <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-data-[focus]:inline">HAHA</kbd>
-          </button>
-        </MenuItem>
-        <MenuItem>
-          <button
-            onClick={openLogoutModal}
+            onClick={openExitModal}
             className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 
               data-[focus]:bg-quinternary/50 text-secondary hover:text-quaternary"
           >

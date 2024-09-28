@@ -3,6 +3,8 @@ import { Header } from "./header";
 import { UserDefault } from "./user-deafult";
 import { MessageList } from "./message-list";
 import { SearchBar } from "./search-bar";
+import { FriendActions } from "./friend-actions";
+import { GroupActions } from "./group-actions";
 
 export function SectionChat() {
   return ( 
@@ -16,9 +18,10 @@ export function SectionChat() {
           </div>
         </div>
 
-        <div className="flex gap-8">
+        <div className="flex gap-8 items-center">
           <Search size={20} className="cursor-pointer text-quaternary"/>
-          <MoreVertical size={20} className="cursor-pointer text-quaternary"/>
+          <FriendActions />
+          <GroupActions />
         </div>
       </Header>
 
