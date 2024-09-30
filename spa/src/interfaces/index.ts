@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode, InputHTMLAttributes } from "react"
 
 //Login
 export interface responseToken {
@@ -93,3 +93,13 @@ export interface propsFriendDropdown {
 }
 
 
+// Add friend in group
+
+export interface propsFriendCheckbox extends InputHTMLAttributes<HTMLInputElement> {
+  email: string
+}
+
+export interface CreateGroupForm {
+  name: string,
+  friends: { [key: string]: boolean };
+}

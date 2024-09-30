@@ -2,6 +2,8 @@ import { Input } from "../input";
 import { Button } from "../button";
 import { FriendCheckbox } from "../friend-checkbox";
 import { useForm } from "react-hook-form";
+import { CreateGroupForm } from "../../interfaces";
+
 const friends = [
   {
     id: "1",
@@ -23,19 +25,14 @@ const friends = [
   }
 ]
 
-interface CreateGroup {
-  name: string,
-  friends: { [key: string]: boolean };
-}
-
 export function CreateGroup() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<CreateGroup>()
+  } = useForm<CreateGroupForm>()
 
-  async function onSubmit(data: CreateGroup) {
+  async function onSubmit(data: CreateGroupForm) {
     console.log(data);
 
   }
@@ -52,16 +49,7 @@ export function CreateGroup() {
 
       <div className="flex flex-col gap-1 overflow-y-auto">
         {friends.map((friend) => {
-          return <div key={friend.email}>
-            <label>
-              <input
-                type="checkbox"
-                {...register(`friends.${friend.email}`)}
-              />
-              {friend.email}
-            </label>
-          </div>
-
+          return <FriendCheckbox key={friend.email} email={friend.email} {...register(`friends.${friend.email}`)}/>
         })}
       </div>
 
