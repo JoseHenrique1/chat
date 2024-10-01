@@ -46,6 +46,7 @@ export type ResponsiveHomeContextType = {
 
 export interface propsMessage {
   isFriend?: boolean
+  message: string
 }
 
 // Modal
