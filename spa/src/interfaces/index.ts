@@ -103,3 +103,7 @@ export interface CreateGroupForm {
   name: string,
   friends: { [key: string]: boolean };
 }
+
+export interface FriendsForm {
+  friends: { [key: string]: boolean };
+}
