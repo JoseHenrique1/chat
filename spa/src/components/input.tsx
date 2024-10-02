@@ -5,7 +5,9 @@ export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputE
     return (
       <input
         ref={ref}
-        className="px-2 py-1 rounded focus:outline-none focus:ring focus:ring-secondary"
+        className="px-2 py-1 rounded 
+        bg-tertiary/95 text-quaternary placeholder:text-secondary hover:bg-tertiary focus:bg-tertiary
+        focus:outline-none focus:ring-2 focus:ring-special"
         {...props} />
     );
   }
