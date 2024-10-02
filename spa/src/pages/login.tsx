@@ -2,11 +2,12 @@ import { Input } from "../components/input";
 import { Button } from "../components/button";
 import { useForm } from "react-hook-form"
 import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { InputsLogin, responseToken } from "../interfaces";
 import { api } from "../utils/axios";
 import Cookies from "js-cookie";
+import { NameSite } from "../components/name-site";
 
 export function Login() {
   const navigate = useNavigate()
@@ -30,7 +31,7 @@ export function Login() {
         Cookies.set("token", mutation.data?.token)
         setTimeout(() => {
           navigate("/")
-        }, 3000) 
+        }, 3000)
       }
     }
   }, [mutation.isSuccess])
@@ -41,11 +42,13 @@ export function Login() {
 
   return (
     <main
-      className="min-h-screen min-w-full p-4 flex justify-center items-center">
+      className="min-h-screen min-w-full p-4 flex justify-center items-center  authImage">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-4 bg-slate-400 w-full p-4 rounded max-w-sm">
+        className="relative backdrop-blur-xl flex flex-col gap-4 bg-secondary/40 w-full p-4 rounded max-w-sm">
 
+        <NameSite />
+        <h1 className="text-tertiary text-lg font-semibold">Login</h1>
         <Input
           type="email"
           placeholder="nome@gmail.com"
@@ -59,7 +62,11 @@ export function Login() {
         {errors.password?.type == "required" && <p>Campo obrigatório</p>}
         {errors.password?.type == "minLength" && <p>Precisa ter no mínimo 3 caracteres</p>}
         <Button type="submit">Entrar</Button>
+        <p className="text-quinternary">
+          Não possui conta? <Link to="/auth/signup" className="text-tertiary hover:text-special hover:drop-shadow-sm">Cadastre-se</Link>
+        </p>
         {mutation.isPending && <p>carregando ...</p>}
+
       </form>
     </main>
   );

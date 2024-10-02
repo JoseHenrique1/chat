@@ -5,6 +5,10 @@
 
 
 @layer components {
+  .authImage {
+    background-image: url("./assets/img/pexels-merlin-14314638.jpg");
+    @apply bg-cover bg-center
+  }
   .messageList {
     background-image: url("./assets/img/whats.png");
     

@@ -5,7 +5,8 @@ import { useMutation } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { InputsRegistration } from "../interfaces";
 import { api } from "../utils/axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { NameSite } from "../components/name-site";
 
 
 export function Registration() {
@@ -19,7 +20,7 @@ export function Registration() {
   const mutation = useMutation({
     mutationFn: async (data: InputsRegistration) => {
       console.log(data.img);
-      
+
       return await api.post("/auth/signup", { ...data })
         .then(res => res.data)
         .catch(() => null)
@@ -41,11 +42,12 @@ export function Registration() {
 
   return (
     <main
-      className="min-h-screen min-w-full p-4 flex justify-center items-center">
+      className="min-h-screen min-w-full p-4 flex justify-center items-center authImage">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-4 bg-slate-400 w-full p-4 rounded max-w-sm">
-
+        className="relative backdrop-blur-xl flex flex-col gap-4 bg-secondary/40 w-full p-4 rounded max-w-sm">
+        <NameSite />
+        <h1 className="text-tertiary text-lg font-semibold">Cadastro</h1>
         <Input
           type="text"
           placeholder="Nome"
@@ -71,6 +73,9 @@ export function Registration() {
           <option value="male">male</option>
         </select>
         <Button type="submit">Entrar</Button>
+        <p className="text-quinternary">
+          Possui conta? <Link to="/auth/signin" className="text-tertiary hover:text-special hover:drop-shadow-sm">Entre</Link>
+        </p>
         {mutation.isPending && <p>carregando ...</p>}
       </form>
     </main>
