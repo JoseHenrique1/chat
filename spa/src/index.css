@@ -11,9 +11,9 @@
   }
   .messageList {
     background-image: url("./assets/img/whats.png");
-    
-
   }
+
+
   .contactList {
     height: calc(100vh - 145px);
   }
@@ -29,5 +29,18 @@
   .contactList::-webkit-scrollbar-thumb {
     border: 1px solid;  /* creates padding around scroll thumb */
     @apply bg-quinternary border-tertiary
+  }
+
+
+  /* Scroll do radio button de selecionar avatar */
+  .radioScroll::-webkit-scrollbar {
+    @apply w-2           
+  }
+  .radioScroll::-webkit-scrollbar-track {
+    @apply  pl-1      
+  }
+  
+  .radioScroll::-webkit-scrollbar-thumb {
+    @apply absolute bg-special rounded 
   }
 }

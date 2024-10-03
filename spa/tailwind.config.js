@@ -23,7 +23,9 @@ export default {
       blue: colors.blue,
       green: colors.green,
       slate: colors.slate,
-      emerald: colors.emerald
+      emerald: colors.emerald,
+      red: colors.red,
+      orange: colors.orange
     },
     extend: {},
   },
