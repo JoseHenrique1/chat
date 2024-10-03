@@ -1,4 +1,4 @@
-import { Badge } from "./badge";
+import { Badge } from "./common/badge"
 import { BadgeContextProvider } from "../contexts/badge-context";
 
 export function BadgeList() {

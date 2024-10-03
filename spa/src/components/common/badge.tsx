@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { BadgeContext } from "../contexts/badge-context";
-import { propsBadge } from "../interfaces";
+import { BadgeContext } from "../../contexts/badge-context";
+import { propsBadge } from "../../interfaces";
 
 export function Badge({children}: propsBadge) {
   const {activated, setActivated} = useContext(BadgeContext);

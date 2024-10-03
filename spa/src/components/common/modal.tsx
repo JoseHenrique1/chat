@@ -1,5 +1,5 @@
 import {  Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
-import { propsModal } from '../interfaces'
+import { propsModal } from '../../interfaces'
 
 export function Modal({isOpen, handleClose, title, children}: propsModal) {
   return (

@@ -1,5 +1,5 @@
 import { Input } from "../input";
-import { Button } from "../button";
+import { Button } from "../common/button";
 import { FriendCheckbox } from "../friend-checkbox";
 import { useForm } from "react-hook-form";
 import { CreateGroupForm } from "../../interfaces";

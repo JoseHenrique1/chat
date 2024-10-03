@@ -1,5 +1,5 @@
 import { useModal } from '../hooks/useModal'
-import { Modal } from './modal'
+import { Modal } from './common/modal'
 import { FriendDropdown } from './friend-dropdown'
 import { FriendProfile } from './actions/friend-profile'
 import { DeleteFriend } from './actions/delete-friend'

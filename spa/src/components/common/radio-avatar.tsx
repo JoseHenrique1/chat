@@ -6,7 +6,7 @@ export interface propsAvatarRadio extends InputHTMLAttributes<HTMLInputElement> 
   pathImg: string
 }
 
-import img from "../assets/avatars/avatar.jpeg"
+import img from "../../assets/avatars/avatar.jpeg"
 
 export const RadioAvatar = forwardRef<HTMLInputElement, propsAvatarRadio>( ({ avatar, pathImg, ...props }, ref) => {
   return (

@@ -1,4 +1,4 @@
-import { UserDefault } from "./user-deafult";
+import { UserDefault } from "./common/user-deafult";
 import { useContext } from "react";
 import { ResponsiveHomeContext } from "../contexts/responsive-home-context";
 

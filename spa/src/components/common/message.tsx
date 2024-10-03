@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 
-import { propsMessage } from "../interfaces";
+import { propsMessage } from "../../interfaces";
 export function Message({isFriend, message}: propsMessage) {
   
   return (

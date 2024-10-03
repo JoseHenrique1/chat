@@ -1,6 +1,6 @@
-import { MoreVertical, Search,  } from "lucide-react";
-import { Header } from "./header";
-import { UserDefault } from "./user-deafult";
+import { Search,  } from "lucide-react";
+import { Header } from "./common/header";
+import { UserDefault } from "./common/user-deafult";
 import { MessageList } from "./message-list";
 import { SearchBar } from "./search-bar";
 import { FriendActions } from "./friend-actions";

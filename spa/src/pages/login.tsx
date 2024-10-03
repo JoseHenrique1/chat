@@ -1,5 +1,5 @@
 import { Input } from "../components/input";
-import { Button } from "../components/button";
+import { Button } from "../components/common/button";
 import { useForm } from "react-hook-form"
 import { useMutation } from "@tanstack/react-query";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { InputsLogin, responseToken } from "../interfaces";
 import { api } from "../utils/axios";
 import Cookies from "js-cookie";
-import { NameSite } from "../components/name-site";
+import { NameSite } from "../components/common/name-site";
 
 export function Login() {
   const navigate = useNavigate()

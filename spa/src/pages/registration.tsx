@@ -1,13 +1,13 @@
 import { Input } from "../components/input";
-import { Button } from "../components/button";
+import { Button } from "../components/common/button";
 import { useForm } from "react-hook-form"
 import { useMutation } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { InputsRegistration } from "../interfaces";
 import { api } from "../utils/axios";
 import { useNavigate, Link } from "react-router-dom";
-import { NameSite } from "../components/name-site";
-import { RadioAvatar } from "../components/radio-avatar";
+import { NameSite } from "../components/common/name-site";
+import { RadioAvatar } from "../components/common/radio-avatar";
 import { Alert } from "../components/common/alert";
 
 export function Registration() {

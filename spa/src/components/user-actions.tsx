@@ -1,5 +1,5 @@
 import { useModal } from '../hooks/useModal'
-import { Modal } from './modal'
+import { Modal } from './common/modal'
 import { UserProfile } from './actions/user-profile'
 import { ConfirmLogout } from './actions/confirm-logout'
 import { CreateGroup } from './actions/create-group'

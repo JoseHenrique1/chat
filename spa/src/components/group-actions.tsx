@@ -1,5 +1,5 @@
 import { useModal } from '../hooks/useModal'
-import { Modal } from './modal'
+import { Modal } from './common/modal'
 import { GroupDropdown } from './group-dropdown'
 import { GroupProfile } from './actions/grop-profile'
 import { AddFriendGroup } from './actions/add-friend-group'

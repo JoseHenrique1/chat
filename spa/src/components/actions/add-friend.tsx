@@ -1,5 +1,5 @@
 import { Input } from "../input";
-import { Button } from "../button";
+import { Button } from "../common/button";
 
 export function AddFriend() {
   return (

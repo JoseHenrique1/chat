@@ -1,0 +1,4 @@
+Componentes desta pasta devem obdecer as seguintes regras:
+
+Componentes simples, ou seja, que não importam outros componentes;
+Componentes que são chamados mais de uma vez;

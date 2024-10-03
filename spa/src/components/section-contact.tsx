@@ -1,5 +1,5 @@
-import { UserDefault } from "./user-deafult";
-import { Header } from "./header";
+import { UserDefault } from "./common/user-deafult";
+import { Header } from "./common/header";
 import { Search } from "./search";
 import { ContactCardList } from "./contact-card-list";
 import { BadgeList } from "./badge-list";
