@@ -1,4 +1,3 @@
-import { Input } from "../components/input";
 import { Button } from "../components/common/button";
 import { useForm } from "react-hook-form"
 import { useMutation } from "@tanstack/react-query";
@@ -8,7 +7,7 @@ import { api } from "../utils/axios";
 import { useNavigate, Link } from "react-router-dom";
 import { NameSite } from "../components/common/name-site";
 import { RadioAvatar } from "../components/common/radio-avatar";
-import { Alert } from "../components/common/alert";
+import { AuthInput } from "../components/auth-input";
 
 export function Registration() {
   const navigate = useNavigate()
@@ -34,9 +33,10 @@ export function Registration() {
   useEffect(() => {
     if (mutation.isSuccess && mutation.data) {
       alert("Usuario cadastrado")
-      setTimeout(() => {
-        navigate("/auth/signin")
-      }, 3000)
+      navigate("/auth/signin")
+    }
+    if (mutation.isSuccess && !mutation.data) {
+      alert("Verifique os dados")
     }
   }, [mutation.isSuccess])
 
@@ -88,30 +88,9 @@ export function Registration() {
         <NameSite />
         <h1 className="text-tertiary text-lg font-semibold">Cadastro</h1>
 
-        <Input
-          type="text"
-          placeholder="Nome"
-          {...register("name", {
-            minLength: { value: 3, message: "Precisa ter no mínimo 3 caracteres" },
-            required: "Campo obrigatório"
-          })} />
-        {errors.name && <Alert message={errors.name.message} />}
-        <Input
-          type="email"
-          placeholder="nome@gmail.com"
-          {...register("email", {
-            minLength: { value: 10, message: "Precisa ter no mínimo 10 caracteres" },
-            required: "Campo obrigatório"
-          })} />
-        {errors.email && <Alert message={errors.email.message} />}
-        <Input
-          type="password"
-          placeholder="min 3"
-          {...register("password", {
-            minLength: { value: 6, message: "Precisa ter no mínimo 6 caracteres" },
-            required: "Campo obrigatório"
-          })} />
-        {errors.password && <Alert message={errors.password.message} />}
+        <AuthInput type="name" register={register} errors={errors} />
+        <AuthInput type="email" register={register} errors={errors} />
+        <AuthInput type="password" register={register} errors={errors} />
 
         <div className="h-56 overflow-y-auto radioScroll">
           <div className="columns-3 gap-4">
