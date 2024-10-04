@@ -22,7 +22,7 @@ export function MessageList() {
   const messagesOrdered = messages.reverse()
 
   return (
-    <div className="messageList flex-grow overflow-y-hidden">
+    <div className="flex-grow overflow-y-hidden">
       <div
         className="h-full flex flex-col-reverse gap-4 p-4 overflow-y-scroll">
         {

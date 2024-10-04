@@ -33,6 +33,9 @@ export function Login() {
           navigate("/")
         }, 3000)
       }
+      else {
+        alert("Verifique email e senha")
+      }
     }
   }, [mutation.isSuccess])
 

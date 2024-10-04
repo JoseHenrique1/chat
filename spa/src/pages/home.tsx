@@ -23,7 +23,7 @@ export function Home() {
       handleDisableContact={handleDisableContact}
       handleEnableContact={handleEnableContact}
     >
-      <div className='flex'>
+      <div className='flex authImage'>
         {
           isMobile && mobileComponent
         }
