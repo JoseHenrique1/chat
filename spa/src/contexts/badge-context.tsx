@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
-import { BadgeContextType } from "../interfaces";
-import { propsBadgeProvider } from "../interfaces";
+import { BadgeContextType, propsBadgeProvider } from "../interfaces/contexts";
 
 export const BadgeContext = createContext({} as BadgeContextType)
 

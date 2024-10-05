@@ -1,10 +1,5 @@
 import { forwardRef } from "react";
-import { InputHTMLAttributes } from "react";
-
-export interface propsAvatarRadio extends InputHTMLAttributes<HTMLInputElement> {
-  avatar: string,
-  pathImg: string
-}
+import { propsAvatarRadio } from "../../interfaces";
 
 import img from "../../assets/avatars/avatar.jpeg"
 

@@ -8,11 +8,10 @@ export interface responseToken {
 }
 
 export type InputsLogin = {
+  type: "email" | "password"
   email: string
   password: string
 }
-
-//Registration
 
 enum ImageUserEnum {
   default = "default",
@@ -21,25 +20,19 @@ enum ImageUserEnum {
 }
 
 export type InputsRegistration = {
+  type: "email" | "password" | "name"
   name: string
   email: string
   password: string
   img: ImageUserEnum
 }
 
-//Context ResponsiveHome
-
-export type ResponsiveHomeProviderProps = {
-  children: ReactNode;
-  handleEnableContact: () => void,
-  handleDisableContact: () => void
-};
-
-export type ResponsiveHomeContextType = {
-  handleEnableContact: () => void,
-  handleDisableContact: () => void
-
-};
+export type AuthInputs = {
+  name: string
+  email: string
+  password: string
+  img: ImageUserEnum
+}
 
 
 // Message
@@ -58,16 +51,7 @@ export interface propsModal {
   title: string
 }
 
-// Badges
-
-export type BadgeContextType = {
-  activated: string,
-  setActivated: (value: string) => void,
-}
-
-export interface propsBadgeProvider {
-  children: ReactNode,
-}
+// badge
 
 export interface propsBadge {
   children: string
@@ -107,4 +91,17 @@ export interface CreateGroupForm {
 
 export interface FriendsForm {
   friends: { [key: string]: boolean };
+}
+
+// alert
+
+export interface propsAlert {
+  message?: string
+}
+
+//radio avatar
+
+export interface propsAvatarRadio extends InputHTMLAttributes<HTMLInputElement> {
+  avatar: string,
+  pathImg: string
 }

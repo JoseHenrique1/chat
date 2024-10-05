@@ -1,6 +1,4 @@
-export interface propsAlert {
-  message?: string
-}
+import { propsAlert } from "../../interfaces";
 
 export function Alert({ message }: propsAlert) {
   return (
