@@ -1,17 +1,14 @@
 import { SectionContact } from '../components/section-contact'
 import { SectionChat } from '../components/section-chat'
-import { useCheckToken } from '../hooks/useCheckToken'
 import { useResponsiveHome } from '../hooks/useResponsiveHome';
 
 import { ResponsiveHomeContextProvider } from '../contexts/responsive-home-context';
+import { AuthenticationContextProvider } from '../contexts/authentication-context';
 
 export function Home() {
-  //Verifica se o usuario possui um token
-  useCheckToken();
-
-  const { 
-    isMobile, 
-    contactVisible, 
+  const {
+    isMobile,
+    contactVisible,
     handleEnableContact,
     handleDisableContact
   } = useResponsiveHome();
@@ -19,26 +16,28 @@ export function Home() {
   const mobileComponent = contactVisible ? <SectionContact /> : <SectionChat />;
 
   return (
-    <ResponsiveHomeContextProvider
-      handleDisableContact={handleDisableContact}
-      handleEnableContact={handleEnableContact}
-    >
-      <div className='flex authImage'>
-        {
-          isMobile && mobileComponent
-        }
-        {
-          !isMobile && <>
-            <SectionContact />
-            {
-              contactVisible?
-              <div>Abra um contato e inicie uma conversa</div>
-              :
-              <SectionChat />
-            }
-          </>
-        }
-      </div>
-    </ResponsiveHomeContextProvider>
+    <AuthenticationContextProvider>
+      <ResponsiveHomeContextProvider
+        handleDisableContact={handleDisableContact}
+        handleEnableContact={handleEnableContact}
+      >
+        <div className='flex authImage'>
+          {
+            isMobile && mobileComponent
+          }
+          {
+            !isMobile && <>
+              <SectionContact />
+              {
+                contactVisible ?
+                  <div>Abra um contato e inicie uma conversa</div>
+                  :
+                  <SectionChat />
+              }
+            </>
+          }
+        </div>
+      </ResponsiveHomeContextProvider>
+    </AuthenticationContextProvider>
   )
 }
