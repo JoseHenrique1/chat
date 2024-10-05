@@ -22,7 +22,7 @@ export function FriendDropdown({ openFriendProfileModal, openDeleteFriendModal }
               data-[focus]:bg-quinternary/50 text-secondary hover:text-quaternary"
           >
             <UserRoundSearch className="size-4 fill-white/30" />
-            Ver dados
+            Dados do amigo
             <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-data-[focus]:inline">HAHA</kbd>
           </button>
         </MenuItem>

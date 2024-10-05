@@ -4,6 +4,7 @@ import { useResponsiveHome } from '../hooks/useResponsiveHome';
 
 import { ResponsiveHomeContextProvider } from '../contexts/responsive-home-context';
 import { AuthenticationContextProvider } from '../contexts/authentication-context';
+import { Presentation } from '../components/presentation';
 
 export function Home() {
   const {
@@ -30,7 +31,7 @@ export function Home() {
               <SectionContact />
               {
                 contactVisible ?
-                  <div>Abra um contato e inicie uma conversa</div>
+                  <Presentation />
                   :
                   <SectionChat />
               }

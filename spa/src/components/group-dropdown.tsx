@@ -22,7 +22,7 @@ export function GroupDropdown({ openAddFriendGroupModal, openExitModal, openGrou
               data-[focus]:bg-quinternary/50 text-secondary hover:text-quaternary"
           >
             <UserRoundSearch className="size-4 fill-white/30" />
-            Ver dados
+            Dados do grupo
             <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-data-[focus]:inline">HAHA</kbd>
           </button>
         </MenuItem>
@@ -44,7 +44,7 @@ export function GroupDropdown({ openAddFriendGroupModal, openExitModal, openGrou
               data-[focus]:bg-quinternary/50 text-secondary hover:text-quaternary"
           >
             <LogOut className="size-4 fill-white/30" />
-            Sair
+            Sair do grupo
             <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-data-[focus]:inline">HAHA</kbd>
           </button>
         </MenuItem>

@@ -22,7 +22,7 @@ export function UserDropdown({ openAddFriendModal, openAddGroupModal, openLogout
               data-[focus]:bg-quinternary/50 text-secondary hover:text-quaternary"
           >
             <UserRoundPlus className="size-4" />
-            Adicionar amigo
+            Novo amigo
             <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-data-[focus]:inline">⌘E</kbd>
           </button>
         </MenuItem>
@@ -33,7 +33,7 @@ export function UserDropdown({ openAddFriendModal, openAddGroupModal, openLogout
               data-[focus]:bg-quinternary/50 text-secondary hover:text-quaternary"
           >
             <Users className="size-4 fill-white/30" />
-            Criar grupo
+            Novo grupo
             <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-data-[focus]:inline">HAHA</kbd>
           </button>
         </MenuItem>
