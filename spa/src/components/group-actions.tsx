@@ -8,7 +8,7 @@ import { ExitGroup } from './actions/exit-group'
 export function GroupActions() {
   const friendModal = useModal("Adicionar amigo")
   const profileModal = useModal("Perfil")
-  const exitModal = useModal("Você deseja sair do grupo?")
+  const exitModal = useModal("Sair do grupo")
 
   return (
     <>

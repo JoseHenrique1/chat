@@ -1,13 +1,16 @@
+import profileImg from "../../assets/avatars/avatar.jpeg"
+
 export function FriendProfile() {
   return (
     <div>
-      <p>Amigo John Doe</p>
-      <p>johndoe@example.com</p>
-      <p>Online</p>
-      <p>Last seen: 3 hours ago</p>
-      <button>Edit Profile</button>
-      <button>Delete Account</button>
-      <button>Logout</button>
+      <div>
+        <img 
+          src={profileImg} 
+          alt="avatar"
+          className="rounded-full mx-auto my-0"  />
+      </div>
+      <p className="text-lg text-center">John Doe</p>
+      <p className="text-sm text-center">johndoe@example.com</p>
     </div> 
   );
 }

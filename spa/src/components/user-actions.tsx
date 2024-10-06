@@ -10,7 +10,7 @@ export function UserActions() {
   const friendModal = useModal("Novo amigo")
   const groupModal = useModal("Criar grupo")
   const profileModal = useModal("Perfil")
-  const logoutModal = useModal("Você deseja sair?")
+  const logoutModal = useModal("Sair")
 
   return (
     <>

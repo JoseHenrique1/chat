@@ -1,11 +1,15 @@
+import profileImg from "../../assets/avatars/avatar.jpeg"
 export function UserProfile() {
   return (
     <div>
-      <h1>Perfil</h1>
-      <p>John Doe</p>
-      <p>johndoe@example.com</p>
-      <p>Online</p>
-      <p>Last seen: 3 hours ago</p>
+      <div>
+        <img 
+          src={profileImg} 
+          alt="avatar"
+          className="rounded-full mx-auto my-0"  />
+      </div>
+      <p className="text-lg text-center">John Doe</p>
+      <p className="text-sm text-center">johndoe@example.com</p>
       <button>Edit Profile</button>
       <button>Delete Account</button>
       <button>Logout</button>

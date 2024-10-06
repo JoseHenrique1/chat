@@ -5,8 +5,8 @@ import { FriendProfile } from './actions/friend-profile'
 import { DeleteFriend } from './actions/delete-friend'
 
 export function FriendActions() {
-  const friendModal = useModal("Perfil do amigo")
-  const deleteModal = useModal("Você deseja excluir amigo?")
+  const friendModal = useModal("Dados do amigo")
+  const deleteModal = useModal("Excluir amigo?")
 
   return (
     <>
