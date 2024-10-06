@@ -17,7 +17,7 @@ const createUser = {
 const getUser = {
   schema: {
     params: z.object({
-      id: z.string().uuid()
+      email: z.string().email()
     })
   }
 }
@@ -25,7 +25,7 @@ const getUser = {
 const patchUser = {
   schema: {
     params: z.object({
-      id: z.string().uuid()
+      email: z.string().email()
     }),
     body: z.object({
       email: z.string().email().optional(),
@@ -40,7 +40,7 @@ const patchUser = {
 const putUser = {
   schema: {
     params: z.object({
-      id: z.string().uuid()
+      email: z.string().email()
     }),
     body: user
   }
@@ -49,7 +49,7 @@ const putUser = {
 const deleteUser = {
   schema: {
     params: z.object({
-      id: z.string().uuid()
+      email: z.string().email()
     })
   }
 }

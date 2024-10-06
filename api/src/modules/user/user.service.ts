@@ -1,9 +1,9 @@
 import { prisma } from "../../databse/prisma";
 import { UserType } from "./user.schema";
 
-async function getUser(id: string) {
+async function getUser(email: string) {
   const user = await prisma.user.findUnique({
-    where: { id },
+    where: { email },
   })
   return user;
 }
@@ -28,18 +28,18 @@ async function createUser(data: UserType) {
   return user;
 }
 
-async function updateUser(id: string, data: UserType) {
+async function updateUser(email: string, data: UserType) {
   const user = await prisma.user.update({
-    where: {id},
+    where: {email},
     data
   })
 
   return user; 
 }
 
-async function deleteUser(id: string) {
+async function deleteUser(email: string) {
   const user = await prisma.user.delete({
-    where: {id}
+    where: {email}
   })
 
   return user

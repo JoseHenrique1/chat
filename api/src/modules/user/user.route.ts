@@ -12,13 +12,13 @@ export function UserRoute(fastify: FastifyInstance, opts: any, done: HookHandler
 
   fastify.post("/", UserSchema.createUser, UserController.createUser);
 
-  fastify.get("/:id", UserSchema.getUser, UserController.getUser);
+  fastify.get("/:email", UserSchema.getUser, UserController.getUser);
 
-  fastify.put("/:id", UserSchema.putUser, UserController.putUser);
+  fastify.put("/:email", UserSchema.putUser, UserController.putUser);
 
-  fastify.patch("/:id", UserSchema.patchUser, UserController.patchUser);
+  fastify.patch("/:email", UserSchema.patchUser, UserController.patchUser);
 
-  fastify.delete("/:id", UserSchema.deleteUser, UserController.deleteUser);
+  fastify.delete("/:email", UserSchema.deleteUser, UserController.deleteUser);
 
   done();
 }

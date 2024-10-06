@@ -1,6 +1,6 @@
-GET http://localhost:3000/users
+GET http://localhost:3000/users/jose@gmail.com
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5NWNhNzYxLTk1M2YtNGE4MS1hYjM3LTM1NjA1YjFlOWUwMCIsImlhdCI6MTcyMjM2MTYyMywiZXhwIjoxNzIyOTY2NDIzfQ.XrO26sBNJfakf975QqUZfrqCXOl7yFPDAUTW2D3VT1A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmMzFhZjY5LTI0NWEtNGM0Mi1iNWU0LTM0MmU3YTZiMDhkYiIsImVtYWlsIjoiam9zZUBnbWFpbC5jb20iLCJpYXQiOjE3MjgyMTgyNzksImV4cCI6MTcyODgyMzA3OX0.m73MIUxctru1q9aNKVss0XLyrCTfOO-K4ukbczHil0o
 
 ###
 
