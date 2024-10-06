@@ -5,8 +5,10 @@ import { useResponsiveHome } from '../hooks/useResponsiveHome';
 import { ResponsiveHomeContextProvider } from '../contexts/responsive-home-context';
 import { AuthenticationContextProvider } from '../contexts/authentication-context';
 import { Presentation } from '../components/presentation';
+import { useCheckToken } from '../hooks/useCheckToken';
 
 export function Home() {
+  useCheckToken()
   const {
     isMobile,
     contactVisible,

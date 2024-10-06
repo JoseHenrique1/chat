@@ -8,8 +8,10 @@ import { useNavigate, Link } from "react-router-dom";
 import { NameSite } from "../components/common/name-site";
 import { RadioAvatar } from "../components/common/radio-avatar";
 import { AuthInput } from "../components/auth-input";
+import { useCheckToken } from "../hooks/useCheckToken";
 
 export function Registration() {
+  useCheckToken()
   const navigate = useNavigate()
   const {
     register,

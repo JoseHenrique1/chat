@@ -8,8 +8,10 @@ import { InputsLogin, responseToken } from "../interfaces";
 import { api } from "../utils/axios";
 import Cookies from "js-cookie";
 import { NameSite } from "../components/common/name-site";
+import { useCheckToken } from "../hooks/useCheckToken";
 
 export function Login() {
+  useCheckToken()
   const navigate = useNavigate()
   const {
     register,
