@@ -8,3 +8,16 @@ Content-Type: application/json
   "img": "default"
 
 }
+
+###
+GET  http://localhost:3000/auth/user
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmMzFhZjY5LTI0NWEtNGM0Mi1iNWU0LTM0MmU3YTZiMDhkYiIsImVtYWlsIjoiam9zZUBnbWFpbC5jb20iLCJpYXQiOjE3MjgyMjE5ODQsImV4cCI6MTcyODgyNjc4NH0.CyVOY6GbZ4oAqKpuljUct1nGzTb2GRdDvPBF2XjA_0E
+
+{
+  "name": "jose",
+  "email": "jose@gmail.com",
+  "password": "password123",
+  "img": "default"
+
+}
