@@ -1,5 +1,6 @@
 // Authentication Context
 import { ReactNode } from "react";
+import { AxiosInstance } from "axios";
 
 export interface user {
   email: string,
@@ -8,6 +9,7 @@ export interface user {
 export type AuthenticationContextType = {
   user: user
   handleLogout: () => void,
+  api: AxiosInstance
 };
 
 export type AuthenticationProviderProps = {
