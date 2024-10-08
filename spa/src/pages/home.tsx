@@ -6,6 +6,8 @@ import { ResponsiveHomeContextProvider } from '../contexts/responsive-home-conte
 import { AuthenticationContextProvider } from '../contexts/authentication-context';
 import { Presentation } from '../components/presentation';
 import { useCheckToken } from '../hooks/useCheckToken';
+import { ContactsProvider } from '../contexts/contacts-context';
+import { BadgeContextProvider } from '../contexts/badge-context';
 
 export function Home() {
   useCheckToken()
@@ -20,27 +22,26 @@ export function Home() {
 
   return (
     <AuthenticationContextProvider>
-      <ResponsiveHomeContextProvider
-        handleDisableContact={handleDisableContact}
-        handleEnableContact={handleEnableContact}
-      >
-        <div className='flex authImage'>
-          {
-            isMobile && mobileComponent
-          }
-          {
-            !isMobile && <>
-              <SectionContact />
+      <ContactsProvider>
+        <BadgeContextProvider>
+          <ResponsiveHomeContextProvider
+            handleDisableContact={handleDisableContact}
+            handleEnableContact={handleEnableContact}
+          >
+            <div className='flex authImage'>
+              {isMobile && mobileComponent}
               {
-                contactVisible ?
-                  <Presentation />
-                  :
-                  <SectionChat />
+                !isMobile && <>
+                  <SectionContact />
+                  {contactVisible ?
+                    <Presentation /> : <SectionChat />
+                  }
+                </>
               }
-            </>
-          }
-        </div>
-      </ResponsiveHomeContextProvider>
+            </div>
+          </ResponsiveHomeContextProvider>
+        </BadgeContextProvider>
+      </ContactsProvider>
     </AuthenticationContextProvider>
   )
 }

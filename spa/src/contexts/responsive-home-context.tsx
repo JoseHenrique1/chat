@@ -1,5 +1,5 @@
 import { createContext} from 'react';
-import { ResponsiveHomeContextType, ResponsiveHomeProviderProps } from '../interfaces';
+import { ResponsiveHomeContextType, ResponsiveHomeProviderProps } from '../interfaces/contexts';
 
 export const ResponsiveHomeContext = createContext({} as ResponsiveHomeContextType);
 

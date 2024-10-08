@@ -1,19 +1,17 @@
 import { Badge } from "./common/badge"
-import { BadgeContextProvider } from "../contexts/badge-context";
 
 export function BadgeList() {
-
   const badgesNames = [
-    "Tudo",
+    "Amigos",
     "Não lidas",
-    "Grupo"
+    "Grupos"
   ]
 
   return (
     <>
-      <BadgeContextProvider>
+  
         {badgesNames.map(name=> <Badge key={name}>{name}</Badge>)}
-      </BadgeContextProvider>
+     
     </>
   );
 }

@@ -34,10 +34,10 @@ export type ResponsiveHomeContextType = {
 // Badges
 
 export type BadgeContextType = {
-  activated: string,
-  setActivated: (value: string) => void,
+  activated: "Amigos"|"Grupos"|"Não lidas",
+  setActivated: (value: "Amigos"|"Grupos"|"Não lidas") => void,
 }
 
 export interface propsBadgeProvider {
-  children: ReactNode,
+  children: ReactNode
 }

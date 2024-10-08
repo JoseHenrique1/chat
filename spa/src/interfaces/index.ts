@@ -54,7 +54,7 @@ export interface propsModal {
 // badge
 
 export interface propsBadge {
-  children: string
+  children: "Amigos"|"Grupos"|"Não lidas"| ReactNode
 }
 
 // UserDropdown

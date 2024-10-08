@@ -4,7 +4,7 @@ import { BadgeContextType, propsBadgeProvider } from "../interfaces/contexts";
 export const BadgeContext = createContext({} as BadgeContextType)
 
 export function BadgeContextProvider({children}: propsBadgeProvider) {
-  const [activated, setActivated] = useState("Tudo")
+  const [activated, setActivated] = useState<"Amigos" | "Grupos" | "Não lidas">("Amigos")
 
   return (
     <>
