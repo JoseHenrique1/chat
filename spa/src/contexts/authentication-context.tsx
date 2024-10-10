@@ -12,7 +12,7 @@ export function AuthenticationContextProvider({ children }: AuthenticationProvid
   const myapi = api;
   myapi.defaults.headers.common.Authorization = `Bearer ${Cookies.get("token")}`
   const navigate = useNavigate()
-  const [user, setUser] = useState<user>({} as user)
+  const [user, setUser] = useState<user|null>(null)
 
   function handleLogout() {
     Cookies.remove("token")

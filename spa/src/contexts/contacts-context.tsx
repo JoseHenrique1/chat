@@ -1,51 +1,11 @@
-import { createContext, useState } from 'react';
-
-
-const friendsFake = [
-  {
-    email: "jose@gmail.com",
-    name: "jose"
-  },
-  {
-    email: "maria@gmail.com",
-    name: "maria"
-  },
-  {
-    email: "ana@gmail.com",
-    name: "ana"
-  }
-]
-
-const groupsFake = [
-  {
-    id: "111",
-    name: "Estudos"
-  },
-  {
-    id: "222",
-    name: "Matemática"
-  },
-  {
-    id: "333",
-    name: "Futebol"
-  }
-]
-
-interface friend {
-  email: string,
-  name: string,
-}
-
-interface group {
-  id: string
-  name: string,
-}
+import { createContext, useState, Dispatch } from 'react';
+import { friend, group } from '../interfaces/contexts';
 
 type ContactsContextType = {
   friends: friend[],
-  groups: group[]
-
-
+  groups: group[],
+  setFriends: Dispatch<React.SetStateAction<friend[]>>
+  setGroups: Dispatch<React.SetStateAction<group[]>>
 };
 
 type ContactsProviderProps = {
@@ -57,14 +17,17 @@ type ContactsProviderProps = {
 export const ContactsContext = createContext({} as ContactsContextType);
 
 export function ContactsProvider({ children }: ContactsProviderProps) {
-  const [friends, setFriends] = useState(friendsFake)
-  const [groups, setgroups] = useState(groupsFake)
+  const [friends, setFriends] = useState<friend[]>([])
+  const [groups, setGroups] = useState<group[]>([])
+
 
   return (
     <ContactsContext.Provider
       value={{
         friends,
-        groups
+        groups,
+        setFriends,
+        setGroups
       }}
     >
       {children}

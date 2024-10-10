@@ -105,3 +105,6 @@ export interface propsAvatarRadio extends InputHTMLAttributes<HTMLInputElement> 
   avatar: string,
   pathImg: string
 }
+
+
+//

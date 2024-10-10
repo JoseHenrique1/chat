@@ -7,7 +7,7 @@ export interface user {
   name: string
 }
 export type AuthenticationContextType = {
-  user: user
+  user: user|null
   handleLogout: () => void,
   api: AxiosInstance
 };
@@ -40,4 +40,19 @@ export type BadgeContextType = {
 
 export interface propsBadgeProvider {
   children: ReactNode
+}
+
+
+
+// Contacts
+
+
+export interface friend {
+  email: string,
+  name: string,
+}
+
+export interface group {
+  id: string
+  name: string,
 }
