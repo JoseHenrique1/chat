@@ -3,29 +3,28 @@ import { Button } from "../common/button";
 import { FriendCheckbox } from "../friend-checkbox";
 import { useForm } from "react-hook-form";
 import { CreateGroupForm } from "../../interfaces";
+import { useContext } from "react";
+import { AuthenticationContext } from "../../contexts/authentication-context";
+import { ContactsContext } from "../../contexts/contacts-context";
 
-const friends = [
+/* const friends = [
   {
-    id: "1",
     name: "jose",
     email: "jose@gmail",
-    selected: false
   },
   {
-    id: "2",
     name: "joao",
     email: "joao@gmail",
-    selected: true
   },
   {
-    id: "3",
     name: "maria",
     email: "maria@gmail",
-    selected: false
   }
-]
+] */
 
 export function CreateGroup() {
+  const { api } = useContext(AuthenticationContext)
+  const { friends } = useContext(ContactsContext)
   const {
     register,
     handleSubmit,
@@ -34,8 +33,13 @@ export function CreateGroup() {
 
   async function onSubmit(data: CreateGroupForm) {
     console.log(data);
-
+    api.post("/groups", {
+      name: data.name
+    })
+    .catch(e=>alert("Verifique sua conexão com a internet"))
   }
+
+
 
 
   return (
@@ -44,12 +48,19 @@ export function CreateGroup() {
       className='flex flex-col gap-2 mt-2'>
 
       <Input
-        {...register("name", { minLength: 3 })}
-        placeholder='Nome do grupo' />
+        placeholder='Nome do grupo'
+        type="text"
+        {...register("name", { required: "Campo obrigatório",  minLength: {
+          value: 6,
+          message: "Precisa ter no mínimo 6 caracteres"
+        } })}
+      />
+      {errors.name && <p>{errors.name.message}</p>}
 
       <div className="flex flex-col gap-1 overflow-y-auto">
         {friends.map((friend) => {
-          return <FriendCheckbox key={friend.email} email={friend.email} {...register(`friends.${friend.email}`)}/>
+          //se usar a string normal o hook form da  um bug
+          return <FriendCheckbox key={friend.email} email={friend.email} {...register(`friends.${friend.email.replace(/\./g, "-")}` as const)} />
         })}
       </div>
 
