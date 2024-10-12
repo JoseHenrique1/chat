@@ -6,6 +6,7 @@ import { CreateGroupForm } from "../../interfaces";
 import { useContext } from "react";
 import { AuthenticationContext } from "../../contexts/authentication-context";
 import { ContactsContext } from "../../contexts/contacts-context";
+import { group } from "../../interfaces/contexts";
 
 /* const friends = [
   {
@@ -24,7 +25,7 @@ import { ContactsContext } from "../../contexts/contacts-context";
 
 export function CreateGroup() {
   const { api } = useContext(AuthenticationContext)
-  const { friends } = useContext(ContactsContext)
+  const { friends, setGroups } = useContext(ContactsContext)
   const {
     register,
     handleSubmit,
@@ -32,11 +33,16 @@ export function CreateGroup() {
   } = useForm<CreateGroupForm>()
 
   async function onSubmit(data: CreateGroupForm) {
-    console.log(data);
-    api.post("/groups", {
+    const response = await api.post<{group: group}>("/groups", {
       name: data.name
     })
-    .catch(e=>alert("Verifique sua conexão com a internet"))
+    .catch(e=>{
+      alert("Verifique sua conexão com a internet")
+      return null
+    })
+    
+    response && setGroups(prev=>[...prev, response.data.group])
+
   }
 
 

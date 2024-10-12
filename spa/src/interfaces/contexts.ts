@@ -1,5 +1,5 @@
 // Authentication Context
-import { ReactNode } from "react";
+import { ReactNode, Dispatch } from "react";
 import { AxiosInstance } from "axios";
 
 export interface user {
@@ -7,7 +7,7 @@ export interface user {
   name: string
 }
 export type AuthenticationContextType = {
-  user: user|null
+  user: user | null
   handleLogout: () => void,
   api: AxiosInstance
 };
@@ -22,20 +22,23 @@ export type AuthenticationProviderProps = {
 export type ResponsiveHomeProviderProps = {
   children: ReactNode;
   handleEnableContact: () => void,
-  handleDisableContact: () => void
+  handleDisableContact: () => void,
+  chatVisible: "friend"|"group",
+  setChatVisible: Dispatch<React.SetStateAction<"friend" | "group">>
 };
 
 export type ResponsiveHomeContextType = {
   handleEnableContact: () => void,
-  handleDisableContact: () => void
-
+  handleDisableContact: () => void,
+  chatVisible: "friend"|"group",
+  setChatVisible: Dispatch<React.SetStateAction<"friend" | "group">>
 };
 
 // Badges
 
 export type BadgeContextType = {
-  activated: "Amigos"|"Grupos"|"Não lidas",
-  setActivated: (value: "Amigos"|"Grupos"|"Não lidas") => void,
+  activated: "Amigos" | "Grupos" | "Não lidas",
+  setActivated: (value: "Amigos" | "Grupos" | "Não lidas") => void,
 }
 
 export interface propsBadgeProvider {

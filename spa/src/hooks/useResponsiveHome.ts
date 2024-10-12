@@ -4,6 +4,8 @@ export function useResponsiveHome() {
   const [isMobile, setIsMobile] = useState(window.innerWidth<768);
   const [contactVisible, setContactVisible] = useState(true);
 
+  const [chatVisible, setChatVisible] = useState<"friend"|"group">("friend")
+
   function handleEnableContact() {
     setContactVisible(true)
   }
@@ -33,7 +35,9 @@ export function useResponsiveHome() {
     isMobile,
     contactVisible,
     handleEnableContact,
-    handleDisableContact
+    handleDisableContact,
+    chatVisible,
+    setChatVisible
   }
   
 }

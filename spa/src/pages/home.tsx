@@ -1,5 +1,4 @@
 import { SectionContact } from '../components/section-contact'
-import { SectionChat } from '../components/section-chat'
 import { useResponsiveHome } from '../hooks/useResponsiveHome';
 
 import { ResponsiveHomeContextProvider } from '../contexts/responsive-home-context';
@@ -8,6 +7,8 @@ import { Presentation } from '../components/presentation';
 import { useCheckToken } from '../hooks/useCheckToken';
 import { ContactsProvider } from '../contexts/contacts-context';
 import { BadgeContextProvider } from '../contexts/badge-context';
+import { FriendChat } from '../components/friend-chat';
+import { GroupChat } from '../components/group-chat';
 
 export function Home() {
   useCheckToken()
@@ -15,10 +16,13 @@ export function Home() {
     isMobile,
     contactVisible,
     handleEnableContact,
-    handleDisableContact
+    handleDisableContact,
+    chatVisible,
+    setChatVisible
   } = useResponsiveHome();
 
-  const mobileComponent = contactVisible ? <SectionContact /> : <SectionChat />;
+  const chatComponent = chatVisible == 'friend'? <FriendChat/>: <GroupChat/>;
+  const mobileComponent = contactVisible ? <SectionContact /> : chatComponent;
 
   return (
     <AuthenticationContextProvider>
@@ -27,6 +31,8 @@ export function Home() {
           <ResponsiveHomeContextProvider
             handleDisableContact={handleDisableContact}
             handleEnableContact={handleEnableContact}
+            chatVisible={chatVisible}
+            setChatVisible={setChatVisible}
           >
             <div className='flex authImage'>
               {isMobile && mobileComponent}
@@ -34,7 +40,7 @@ export function Home() {
                 !isMobile && <>
                   <SectionContact />
                   {contactVisible ?
-                    <Presentation /> : <SectionChat />
+                    <Presentation /> : chatComponent
                   }
                 </>
               }

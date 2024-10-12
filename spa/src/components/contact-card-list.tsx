@@ -6,6 +6,7 @@ import { BadgeContext } from "../contexts/badge-context";
 import { AxiosResponse } from 'axios';
 import { AuthenticationContext } from '../contexts/authentication-context';
 import { friend, group } from "../interfaces/contexts";
+import { ResponsiveHomeContext } from "../contexts/responsive-home-context";
 
 interface getFriends {
   friends: friend[]
@@ -19,9 +20,13 @@ export function ContactCardList() {
   const { api } = useContext(AuthenticationContext)
   const { friends, groups, setFriends, setGroups } = useContext(ContactsContext)
   const { activated } = useContext(BadgeContext)
+  const { setChatVisible } = useContext(ResponsiveHomeContext)
 
-  function handleOpenContact() {
-    console.log("Abrindo contato")
+  function handleOpenContact(contact: "friend" | "group") {
+    return () => {
+      console.log("Abrindo contato")
+      setChatVisible(contact)
+    }
   }
 
   async function getFriends() {
@@ -48,14 +53,14 @@ export function ContactCardList() {
         <ContactCard
           key={group.id}
           name={group.name}
-          handleOpenContact={handleOpenContact} />
+          handleOpenContact={handleOpenContact("group")} />
       ))}
 
       {activated !== "Grupos" && friends.map(friend => (
         <ContactCard
           key={friend.email}
           name={friend.name}
-          handleOpenContact={handleOpenContact} />
+          handleOpenContact={handleOpenContact("friend")} />
       ))}
     </div>
   );

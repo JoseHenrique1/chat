@@ -1,4 +1,4 @@
-import { createContext} from 'react';
+import { createContext } from 'react';
 import { ResponsiveHomeContextType, ResponsiveHomeProviderProps } from '../interfaces/contexts';
 
 export const ResponsiveHomeContext = createContext({} as ResponsiveHomeContextType);
@@ -6,14 +6,18 @@ export const ResponsiveHomeContext = createContext({} as ResponsiveHomeContextTy
 export function ResponsiveHomeContextProvider({
   children,
   handleEnableContact,
-  handleDisableContact
+  handleDisableContact,
+  chatVisible,
+  setChatVisible
 }: ResponsiveHomeProviderProps) {
 
   return (
     <ResponsiveHomeContext.Provider
       value={{
         handleEnableContact,
-        handleDisableContact
+        handleDisableContact,
+        chatVisible,
+        setChatVisible
       }}
     >
       {children}
