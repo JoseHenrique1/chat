@@ -20,10 +20,12 @@ export function AddFriend() {
   } = useForm<addFriendInterface>()
 
   function onSubmit(data: addFriendInterface) {
-    api.post<friend>("/friends", data)
+    api.post<{friend: friend}>("/friends", data)
       .then((r) => {
         if (r.status === 200 || r.status === 201) {
-          const friend = r.data
+          const friend = r.data.friend
+          console.log(JSON.stringify(friend));
+          
           setFriends(prev => [...prev, friend])
           return
         }
