@@ -6,6 +6,10 @@ type ContactsContextType = {
   groups: group[],
   setFriends: Dispatch<React.SetStateAction<friend[]>>
   setGroups: Dispatch<React.SetStateAction<group[]>>
+  friendSelected:  friend | null,
+  setFriendSelected: Dispatch<React.SetStateAction<friend | null>>,
+  groupSelected:  group | null,
+  setGroupSelected: Dispatch<React.SetStateAction<group | null>>
 };
 
 type ContactsProviderProps = {
@@ -20,6 +24,9 @@ export function ContactsProvider({ children }: ContactsProviderProps) {
   const [friends, setFriends] = useState<friend[]>([])
   const [groups, setGroups] = useState<group[]>([])
 
+  const [friendSelected, setFriendSelected] = useState<friend | null>(null)
+  const [groupSelected, setGroupSelected] = useState<group | null>(null)
+
 
   return (
     <ContactsContext.Provider
@@ -27,7 +34,11 @@ export function ContactsProvider({ children }: ContactsProviderProps) {
         friends,
         groups,
         setFriends,
-        setGroups
+        setGroups,
+        friendSelected,
+        setFriendSelected,
+        groupSelected,
+        setGroupSelected
       }}
     >
       {children}

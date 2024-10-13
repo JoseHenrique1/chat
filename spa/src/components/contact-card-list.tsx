@@ -18,7 +18,7 @@ interface getGroups {
 
 export function ContactCardList() {
   const { api } = useContext(AuthenticationContext)
-  const { friends, groups, setFriends, setGroups } = useContext(ContactsContext)
+  const { friends, groups, setFriends, setGroups, setFriendSelected } = useContext(ContactsContext)
   const { activated } = useContext(BadgeContext)
   const { setChatVisible } = useContext(ResponsiveHomeContext)
 
@@ -26,6 +26,13 @@ export function ContactCardList() {
     return () => {
       console.log("Abrindo contato")
       setChatVisible(contact)
+    }
+  }
+
+  function handleOpenFriend(friend: friend) {
+    return () => {
+      setFriendSelected(friend)
+      setChatVisible("friend")
     }
   }
 
@@ -60,7 +67,7 @@ export function ContactCardList() {
         <ContactCard
           key={friend.email}
           name={friend.name}
-          handleOpenContact={handleOpenContact("friend")} />
+          handleOpenContact={handleOpenFriend(friend)} />
       ))}
     </div>
   );
