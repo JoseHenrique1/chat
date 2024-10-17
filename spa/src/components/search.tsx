@@ -6,14 +6,14 @@ export function Search() {
       <input 
       type="text" 
       placeholder="Pesquisar"
-      className="peer placeholder:text-gray-500 placeholder:text-sm bg-transparent focus:outline-none" />
+      className="peer placeholder:text-secondary placeholder:text-sm bg-transparent focus:outline-none" />
 
       <div className="flex peer-focus:hidden">
-        <SearchIcon color="#6b7280" size={18}/>
+        <SearchIcon className="text-secondary" size={18}/>
       </div>
 
       <div className="hidden peer-focus:flex">
-        <MoveLeft color="#16a34a" size={18}/>
+        <MoveLeft size={18} className="text-special"/>
       </div> 
 
     </div>

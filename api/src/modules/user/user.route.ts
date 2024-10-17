@@ -1,19 +1,24 @@
-import { FastifyInstance } from "fastify";
+import { FastifyInstance, HookHandlerDoneFunction } from "fastify";
 import { UserController } from "./user.controller";
-import { UserSchema, doneType } from "./user.schema";
+import { UserSchema } from "./user.schema";
+import { AuthHook } from "../auth/auth.hook";
 
-export function UserRoute(fastify: FastifyInstance, opts: any, done: doneType) {
-  fastify.get("/", UserController.getUsers)
+export function UserRoute(fastify: FastifyInstance, opts: any, done: HookHandlerDoneFunction) {
+  fastify.decorateRequest(...AuthHook.decoratorUser)
 
-  fastify.post("/", UserSchema.createUser, UserController.createUser)
+  fastify.addHook("preHandler", AuthHook.verifyToken)
 
-  fastify.get("/:id", UserSchema.getUser, UserController.getUser)
+  fastify.get("/", UserController.getUsers);
 
-  fastify.put("/:id", UserSchema.putUser, UserController.putUser)
+  fastify.post("/", UserSchema.createUser, UserController.createUser);
 
-  fastify.patch("/:id", UserSchema.patchUser, UserController.patchUser)
+  fastify.get("/:email", UserSchema.getUser, UserController.getUser);
 
-  fastify.delete("/:id", UserSchema.deleteUser, UserController.deleteUser)
+  fastify.put("/:email", UserSchema.putUser, UserController.putUser);
 
-  done()
+  fastify.patch("/:email", UserSchema.patchUser, UserController.patchUser);
+
+  fastify.delete("/:email", UserSchema.deleteUser, UserController.deleteUser);
+
+  done();
 }

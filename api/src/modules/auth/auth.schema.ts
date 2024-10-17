@@ -14,6 +14,10 @@ const sigin = {
   }
 }
 
+export type userAuth = {
+  Authorization: string
+}
+
 export type authType = z.infer<typeof user>
 
 export const AuthSchema = {

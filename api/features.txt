@@ -1,0 +1,24 @@
+Esquema logico: entidades - relacionamentos - atributos multivalorados
+
+User(id, name, email, password)
+Group(id, name)
+
+UserOnGroup(id, user_id, group_id)
+UserMessagePrivate(id, message, user_from, user_destiny)
+groupMessage(id, message, group_id, user_id)
+
+Friends(id, email_user, email_friend)
+
+
+
+
+
+!!! Colocar no modulo Groups rotas para adicionar e deletar user !!!
+    - adicionar o schemas de groups
+
+
+
+
+
+
+

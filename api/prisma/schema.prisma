@@ -10,11 +10,87 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
-  id    String     @id @default(uuid())
-  email String  @unique
-  name  String?
+  id       String  @id @default(uuid())
+  email    String  @unique
+  name     String?
   password String
-  img String
+  img      String
+
+  friends       Friends[]      @relation("user")
+  friendOf      Friends[]      @relation("friend")
+  groups        UserOnGroup[]
+  messagesGroup groupMessage[]
+
+  privateMessagesSent     UserMessagePrivate[] @relation("user")
+  privateMessagesReceived UserMessagePrivate[] @relation("friend")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Friends {
+  id String @id @default(uuid())
+
+  emailUser   String
+  emailFriend String
+
+  user   User @relation("user", fields: [emailUser], references: [email])
+  friend User @relation("friend", fields: [emailFriend], references: [email])
+
+  @@unique([emailUser, emailFriend])
+}
+
+model Group {
+  id   String @id @default(uuid())
+  name String
+
+  users    UserOnGroup[]
+  messages groupMessage[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model UserOnGroup {
+  id String @id @default(uuid())
+
+  emailUser String
+  groupId   String
+  
+  user      User   @relation(fields: [emailUser], references: [email])
+  group     Group  @relation(fields: [groupId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([emailUser, groupId])
+}
+
+model UserMessagePrivate {
+  id      String @id @default(uuid())
+  message String
+
+  emailUser   String
+  emailFriend String
+
+  user   User @relation("user", fields: [emailUser], references: [email])
+  friend User @relation("friend", fields: [emailFriend], references: [email])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model groupMessage {
+  id      String @id @default(uuid())
+  message String
+
+  groupId   String
+  emailUser String
+
+  group Group @relation(fields: [groupId], references: [id])
+  user  User  @relation(fields: [emailUser], references: [email])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

@@ -5,11 +5,15 @@
 
 
 @layer components {
+  .authImage {
+    background-image: url("./assets/img/pexels-merlin-14314638.jpg");
+    @apply bg-cover bg-center
+  }
   .messageList {
     background-image: url("./assets/img/whats.png");
-    
-
   }
+
+
   .contactList {
     height: calc(100vh - 145px);
   }
@@ -19,11 +23,24 @@
   }
   
   .contactList::-webkit-scrollbar-track {
-    @apply bg-white         /* color of the tracking area */
+    @apply bg-tertiary         /* color of the tracking area */
   }
   
   .contactList::-webkit-scrollbar-thumb {
-    background-color: #d1d5db;    /* color of the scroll thumb */
-    border: 1px solid white  /* creates padding around scroll thumb */
+    border: 1px solid;  /* creates padding around scroll thumb */
+    @apply bg-quinternary border-tertiary
+  }
+
+
+  /* Scroll do radio button de selecionar avatar */
+  .radioScroll::-webkit-scrollbar {
+    @apply w-2           
+  }
+  .radioScroll::-webkit-scrollbar-track {
+    @apply  pl-1      
+  }
+  
+  .radioScroll::-webkit-scrollbar-thumb {
+    @apply absolute bg-special rounded 
   }
 }

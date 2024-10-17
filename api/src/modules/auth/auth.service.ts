@@ -10,8 +10,8 @@ async function getUser(email: string, password: string) {
   return user
 }
 
-function signin(id: string) {
-  const token = sign({ id: id }, JWT_SECRET_KEY!, { expiresIn: "7d" })
+function signin(id: string, email: string) {
+  const token = sign({ id, email }, JWT_SECRET_KEY!, { expiresIn: "7d" })
   return token
 }
 export const AuthService = {

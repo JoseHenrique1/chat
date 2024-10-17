@@ -1,5 +1,6 @@
-GET http://localhost:3000/users
+GET http://localhost:3000/users/jose@gmail.com
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmMzFhZjY5LTI0NWEtNGM0Mi1iNWU0LTM0MmU3YTZiMDhkYiIsImVtYWlsIjoiam9zZUBnbWFpbC5jb20iLCJpYXQiOjE3MjgyMTgyNzksImV4cCI6MTcyODgyMzA3OX0.m73MIUxctru1q9aNKVss0XLyrCTfOO-K4ukbczHil0o
 
 ###
 
@@ -8,7 +9,7 @@ Content-Type: application/json
 
 {
   "name": "John Doe",
-  "email": "jaaem3332333doe@example.com",
+  "email": "kaaem3332333doe@example.com",
   "password": "password123",
   "img": "default"
 
@@ -21,7 +22,6 @@ Content-Type: application/json
 {
   "name": "John Doe hahahahha"
 }
-
 
 ###
 GET http://localhost:3000/users/6ebcf862-5583-43b3-a71f-1e511d7b8cf4

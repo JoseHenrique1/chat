@@ -1,18 +1,10 @@
 import { createContext, useState } from "react";
-import { ReactNode } from "react";
+import { BadgeContextType, propsBadgeProvider } from "../interfaces/contexts";
 
-type BadgeContextType = {
-  activated: string,
-  setActivated: (value: string) => void,
-}
 export const BadgeContext = createContext({} as BadgeContextType)
 
-interface props {
-  children: ReactNode,
-}
-
-export function BadgeContextProvider({children}: props) {
-  const [activated, setActivated] = useState("Tudo")
+export function BadgeContextProvider({children}: propsBadgeProvider) {
+  const [activated, setActivated] = useState<"Amigos" | "Grupos" | "Não lidas">("Amigos")
 
   return (
     <>

@@ -1,0 +1,24 @@
+POST  http://localhost:3000/groups
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmMzFhZjY5LTI0NWEtNGM0Mi1iNWU0LTM0MmU3YTZiMDhkYiIsImlhdCI6MTcyNTMxNzg1MCwiZXhwIjoxNzI1OTIyNjUwfQ.jb4uysY25N-wuFw0sJmRc1m7mOO8bxInEWMykwFqFG0
+
+{
+  "name": "English 3"
+}
+
+###
+
+GET  http://localhost:3000/groups/c817b3ab-25c1-4a38-b774-f61a92e6eb86/messages
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmMzFhZjY5LTI0NWEtNGM0Mi1iNWU0LTM0MmU3YTZiMDhkYiIsImlhdCI6MTcyNTMxNzg1MCwiZXhwIjoxNzI1OTIyNjUwfQ.jb4uysY25N-wuFw0sJmRc1m7mOO8bxInEWMykwFqFG0
+
+
+###
+
+POST  http://localhost:3000/groups/c817b3ab-25c1-4a38-b774-f61a92e6eb86/messages
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmMzFhZjY5LTI0NWEtNGM0Mi1iNWU0LTM0MmU3YTZiMDhkYiIsImlhdCI6MTcyNTMxNzg1MCwiZXhwIjoxNzI1OTIyNjUwfQ.jb4uysY25N-wuFw0sJmRc1m7mOO8bxInEWMykwFqFG0
+
+{
+  "message": "Bom dia atrasado"
+}

@@ -1,12 +1,12 @@
-import Contact from './components/contact'
-import { Chat } from './components/chat'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { Router } from "./router"
+const queryClient = new QueryClient()
+
 function App() {
   return (
-    <div className='flex'>
-      <Contact/>
-      <Chat />
-      
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Router />
+    </QueryClientProvider>
   )
 }
 
